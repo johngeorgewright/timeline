@@ -1,9 +1,8 @@
 {
-  "name": "@johngeorgewright/ts-module",
+  "name": "@johngw/timeline",
   "version": "3.0.1",
   "description": "Compose and react upon redux actions",
-  "private": true,
-  "main": "dist/ts-module.js",
+  "main": "dist/timeline.js",
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
@@ -15,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johngeorgewright/ts-module.git"
+    "url": "git+https://github.com/johngeorgewright/timeline.git"
   },
   "keywords": [],
   "author": "John Wright <johngeorge.wright@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/johngeorgewright/ts-module/issues"
+    "url": "https://github.com/johngeorgewright/timeline/issues"
   },
-  "homepage": "https://github.com/johngeorgewright/ts-module#readme",
+  "homepage": "https://github.com/johngeorgewright/timeline#readme",
   "devDependencies": {
     "@commitlint/cli": "17.6.5",
     "@commitlint/config-conventional": "17.6.5",
