@@ -1,8 +1,56 @@
 {
   "name": "@johngw/timeline",
   "version": "3.0.1",
-  "description": "Compose and react upon redux actions",
-  "main": "dist/timeline.js",
+  "description": "Parse a stream-like timeline of values",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/es/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/common/index.js"
+    },
+    "./Timeline": {
+      "import": "./dist/es/Timeline.js",
+      "require": "./dist/common/Timeline.js"
+    },
+    "./TimelineItem": {
+      "import": "./dist/es/TimelineItem/TimelineItem.js",
+      "require": "./dist/common/TimelineItem/TimelineItem.js"
+    },
+    "./TimelineItemBoolean": {
+      "import": "./dist/es/TimelineItem/TimelineItemBoolean.js",
+      "require": "./dist/common/TimelineItem/TimelineItemBoolean.js"
+    },
+    "./TimelineItemClose": {
+      "import": "./dist/es/TimelineItem/TimelineItemClose.js",
+      "require": "./dist/common/TimelineItem/TimelineItemClose.js"
+    },
+    "./TimelineItemDash": {
+      "import": "./dist/es/TimelineItem/TimelineItemDash.js",
+      "require": "./dist/common/TimelineItem/TimelineItemDash.js"
+    },
+    "./TimelineItemDefault": {
+      "import": "./dist/es/TimelineItem/TimelineItemDefault.js",
+      "require": "./dist/common/TimelineItem/TimelineItemDefault.js"
+    },
+    "./TimelineItemError": {
+      "import": "./dist/es/TimelineItem/TimelineItemError.js",
+      "require": "./dist/common/TimelineItem/TimelineItemError.js"
+    },
+    "./TimelineItemNeverReach": {
+      "import": "./dist/es/TimelineItem/TimelineItemNeverReach.js",
+      "require": "./dist/common/TimelineItem/TimelineItemNeverReach.js"
+    },
+    "./TimelineItemNull": {
+      "import": "./dist/es/TimelineItem/TimelineItemNull.js",
+      "require": "./dist/common/TimelineItem/TimelineItemNull.js"
+    },
+    "./TimelineItemTimer": {
+      "import": "./dist/es/TimelineItem/TimelineItemTimer.js",
+      "require": "./dist/common/TimelineItem/TimelineItemTimer.js"
+    }
+  },
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
@@ -34,6 +82,7 @@
     "@semantic-release/github": "9.0.2",
     "@semantic-release/release-notes-generator": "11.0.2",
     "@types/jest": "29.5.2",
+    "@types/js-yaml": "4.0.5",
     "@types/node": "18.16.16",
     "@types/semantic-release": "20.0.1",
     "@types/source-map-support": "0.5.6",
@@ -62,6 +111,7 @@
     }
   },
   "dependencies": {
+    "js-yaml": "4.1.0",
     "tslib": "2.5.3"
   },
   "packageManager": "yarn@3.6.0"
