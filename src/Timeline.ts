@@ -1,4 +1,4 @@
-import { asyncIterableToArray, search } from './util'
+import { asyncIterableToArray, search } from './util.js'
 import { TimelineItemBoolean } from './TimelineItem/TimelineItemBoolean.js'
 import { TimelineItemClose } from './TimelineItem/TimelineItemClose.js'
 import { TimelineItemError } from './TimelineItem/TimelineItemError.js'
