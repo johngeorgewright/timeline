@@ -89,11 +89,11 @@ export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
   }
 
   async next(): Promise<IteratorResult<ParsedTimelineItem, undefined>> {
-    if (this.#position >= this.#parsed.length - 1)
-      return { done: true, value: undefined }
-
     const previous = this.#parsed[this.position]
     if (previous) await previous.onPass()
+
+    if (this.#position >= this.#parsed.length - 1)
+      return { done: true, value: undefined }
 
     const value = this.#parsed[++this.#position]
     await value.onReach()
