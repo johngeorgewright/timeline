@@ -50,6 +50,12 @@
       "require": "./dist/common/TimelineItem/TimelineItemTimer.cjs"
     }
   },
+  "imports": {
+    "#util": {
+      "import": "./dist/es/util.js",
+      "require": "./dist/common/util.cjs"
+    }
+  },
   "scripts": {
     "build": "yarn clean && tsc && tsc --project tsconfig.common.json && yarn build:covertcommonext",
     "build:covertcommonext": "renamer --force --find '/\\.(j|t)s/' --replace '.c$1s' dist/common/**/*",

@@ -1,4 +1,4 @@
-import { StaticType, timeout } from '../util.js'
+import { StaticType, timeout } from '#util'
 
 /**
  * The base class of a timeline item.

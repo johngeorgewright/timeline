@@ -1,8 +1,4 @@
-import {
-  staticImplements,
-  ValueOrArrayOrObject,
-  takeCharsUntil,
-} from '../util.js'
+import { staticImplements, ValueOrArrayOrObject, takeCharsUntil } from '#util'
 import yaml from 'js-yaml'
 import { TimelineItem, TimelineParsable } from './TimelineItem.js'
 

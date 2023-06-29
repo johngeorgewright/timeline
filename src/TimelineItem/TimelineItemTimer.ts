@@ -1,4 +1,4 @@
-import { staticImplements, timeout } from '../util.js'
+import { staticImplements, timeout } from '#util'
 import { TimelineItem, TimelineParsable } from './TimelineItem.js'
 
 /**

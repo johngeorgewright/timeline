@@ -1,4 +1,4 @@
-import { asyncIterableToArray } from '../src/util.js'
+import { asyncIterableToArray } from '#util'
 import {
   CloseTimeline,
   NeverReachTimelineError,
