@@ -5,7 +5,7 @@ import {
   Timeline,
   TimelineError,
   TimelineTimer,
-} from '../src/index.js'
+} from '@johngw/timeline'
 
 test('Timeline', async () => {
   expect(
