@@ -87,7 +87,7 @@ export class TimelineTimer {
 
   get finished() {
     const timeLeft = this.timeLeft
-    return timeLeft !== undefined && timeLeft <= 0
+    return timeLeft === undefined ? false : timeLeft <= 0
   }
 
   get promise() {
