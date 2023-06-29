@@ -4,58 +4,58 @@
   "description": "Parse a stream-like timeline of values",
   "type": "module",
   "sideEffects": false,
-  "main": "./dist/es/index.js",
   "exports": {
     ".": {
       "import": "./dist/es/index.js",
-      "require": "./dist/common/index.js"
+      "require": "./dist/common/index.cjs"
     },
     "./Timeline": {
       "import": "./dist/es/Timeline.js",
-      "require": "./dist/common/Timeline.js"
+      "require": "./dist/common/Timeline.cjs"
     },
     "./TimelineItem": {
       "import": "./dist/es/TimelineItem/TimelineItem.js",
-      "require": "./dist/common/TimelineItem/TimelineItem.js"
+      "require": "./dist/common/TimelineItem/TimelineItem.cjs"
     },
     "./TimelineItemBoolean": {
       "import": "./dist/es/TimelineItem/TimelineItemBoolean.js",
-      "require": "./dist/common/TimelineItem/TimelineItemBoolean.js"
+      "require": "./dist/common/TimelineItem/TimelineItemBoolean.cjs"
     },
     "./TimelineItemClose": {
       "import": "./dist/es/TimelineItem/TimelineItemClose.js",
-      "require": "./dist/common/TimelineItem/TimelineItemClose.js"
+      "require": "./dist/common/TimelineItem/TimelineItemClose.cjs"
     },
     "./TimelineItemDash": {
       "import": "./dist/es/TimelineItem/TimelineItemDash.js",
-      "require": "./dist/common/TimelineItem/TimelineItemDash.js"
+      "require": "./dist/common/TimelineItem/TimelineItemDash.cjs"
     },
     "./TimelineItemDefault": {
       "import": "./dist/es/TimelineItem/TimelineItemDefault.js",
-      "require": "./dist/common/TimelineItem/TimelineItemDefault.js"
+      "require": "./dist/common/TimelineItem/TimelineItemDefault.cjs"
     },
     "./TimelineItemError": {
       "import": "./dist/es/TimelineItem/TimelineItemError.js",
-      "require": "./dist/common/TimelineItem/TimelineItemError.js"
+      "require": "./dist/common/TimelineItem/TimelineItemError.cjs"
     },
     "./TimelineItemNeverReach": {
       "import": "./dist/es/TimelineItem/TimelineItemNeverReach.js",
-      "require": "./dist/common/TimelineItem/TimelineItemNeverReach.js"
+      "require": "./dist/common/TimelineItem/TimelineItemNeverReach.cjs"
     },
     "./TimelineItemNull": {
       "import": "./dist/es/TimelineItem/TimelineItemNull.js",
-      "require": "./dist/common/TimelineItem/TimelineItemNull.js"
+      "require": "./dist/common/TimelineItem/TimelineItemNull.cjs"
     },
     "./TimelineItemTimer": {
       "import": "./dist/es/TimelineItem/TimelineItemTimer.js",
-      "require": "./dist/common/TimelineItem/TimelineItemTimer.js"
+      "require": "./dist/common/TimelineItem/TimelineItemTimer.cjs"
     }
   },
   "scripts": {
-    "build": "yarn clean && tsc && tsc --project tsconfig.common.json",
+    "build": "yarn clean && tsc && tsc --project tsconfig.common.json && yarn build:covertcommonext",
+    "build:covertcommonext": "renamer --force --find '/\\.(j|t)s/' --replace '.c$1s' dist/common/**/*",
     "clean": "rimraf dist",
     "prepare": "husky install",
-    "start": "concurrently --names es,common 'yarn tsc --watch --preserveWatchOutput' 'yarn tsc --watch --preserveWatchOutput --project tsconfig.common.json'",
+    "start": "concurrently --names es,common,renamer 'yarn tsc --watch --preserveWatchOutput' 'yarn tsc --watch --preserveWatchOutput --project tsconfig.common.json' \"nodemon --ext js --exec 'yarn build:covertcommonext' --watch dist/common\"",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -91,7 +91,9 @@
     "husky": "8.0.3",
     "jest": "29.5.0",
     "lint-staged": "13.2.2",
+    "nodemon": "2.0.22",
     "prettier": "2.8.8",
+    "renamer": "4.0.0",
     "rimraf": "5.0.1",
     "semantic-release": "21.0.3",
     "source-map-support": "0.5.21",
