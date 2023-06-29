@@ -1,13 +1,13 @@
 import { asyncIterableToArray, search } from '#util'
-import { TimelineItemBoolean } from './TimelineItem/TimelineItemBoolean.js'
-import { TimelineItemClose } from './TimelineItem/TimelineItemClose.js'
-import { TimelineItemError } from './TimelineItem/TimelineItemError.js'
-import { TimelineItemNeverReach } from './TimelineItem/TimelineItemNeverReach.js'
-import { TimelineItemNull } from './TimelineItem/TimelineItemNull.js'
-import { TimelineItemTimer } from './TimelineItem/TimelineItemTimer.js'
-import { TimelineItemDefault } from './TimelineItem/TimelineItemDefault.js'
-import { TimelineItemDash } from './TimelineItem/TimelineItemDash.js'
-import { TimelineItem, TimelineParsable } from './TimelineItem/TimelineItem.js'
+import { TimelineItemBoolean } from '@johngw/timeline/TimelineItemBoolean'
+import { TimelineItemClose } from '@johngw/timeline/TimelineItemClose'
+import { TimelineItemError } from '@johngw/timeline/TimelineItemError'
+import { TimelineItemNeverReach } from '@johngw/timeline/TimelineItemNeverReach'
+import { TimelineItemNull } from '@johngw/timeline/TimelineItemNull'
+import { TimelineItemTimer } from '@johngw/timeline/TimelineItemTimer'
+import { TimelineItemDefault } from '@johngw/timeline/TimelineItemDefault'
+import { TimelineItemDash } from '@johngw/timeline/TimelineItemDash'
+import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
  * The configured Timeline parsers.

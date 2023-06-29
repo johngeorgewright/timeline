@@ -1,5 +1,5 @@
 import { staticImplements } from '#util'
-import { TimelineItem, TimelineParsable } from './TimelineItem.js'
+import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
  * A timeline item, with the value of `null` that is generated

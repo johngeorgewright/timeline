@@ -1,5 +1,5 @@
 import { staticImplements } from '#util'
-import { TimelineParsable, TimelineItem } from './TimelineItem.js'
+import { TimelineParsable, TimelineItem } from '@johngw/timeline/TimelineItem'
 
 /**
  * Represents the shorthand for a boolean value, in a timeline.

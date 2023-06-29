@@ -1,5 +1,5 @@
 import { staticImplements, timeout } from '#util'
-import { TimelineItem, TimelineParsable } from './TimelineItem.js'
+import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
  * Represents a dash in a timeline.
