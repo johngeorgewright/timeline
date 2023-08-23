@@ -8,6 +8,7 @@ import { TimelineItemTimer } from '@johngw/timeline/TimelineItemTimer'
 import { TimelineItemDefault } from '@johngw/timeline/TimelineItemDefault'
 import { TimelineItemDash } from '@johngw/timeline/TimelineItemDash'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
+import { TimelineItemInstance } from '@johngw/timeline/TimelineItemInstance'
 
 /**
  * The configured Timeline parsers.
@@ -16,6 +17,7 @@ const Items = [
   TimelineItemDash,
   TimelineItemBoolean,
   TimelineItemClose,
+  TimelineItemInstance,
   TimelineItemError,
   TimelineItemNeverReach,
   TimelineItemNull,

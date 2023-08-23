@@ -37,6 +37,10 @@
       "import": "./dist/es/TimelineItem/TimelineItemError.js",
       "require": "./dist/common/TimelineItem/TimelineItemError.cjs"
     },
+    "./TimelineItemInstance": {
+      "import": "./dist/es/TimelineItem/TimelineItemInstance.js",
+      "require": "./dist/common/TimelineItem/TimelineItemInstance.cjs"
+    },
     "./TimelineItemNeverReach": {
       "import": "./dist/es/TimelineItem/TimelineItemNeverReach.js",
       "require": "./dist/common/TimelineItem/TimelineItemNeverReach.cjs"
