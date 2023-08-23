@@ -5,6 +5,7 @@ import {
   Timeline,
   TimelineError,
   TimelineTimer,
+  TimelineInstanceOf
 } from '@johngw/timeline'
 
 test('Timeline', async () => {
@@ -12,7 +13,7 @@ test('Timeline', async () => {
     (
       await asyncIterableToArray(
         new Timeline(
-          '--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X-|'
+          '--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|'
         )
       )
     ).map((x) => x.get())
@@ -43,6 +44,8 @@ test('Timeline', async () => {
     expect.any(TimelineTimer),
     ...dashes(2),
     new NeverReachTimelineError(),
+    ...dashes(2),
+    new TimelineInstanceOf('Date'),
     ...dashes(1),
     CloseTimeline,
   ])

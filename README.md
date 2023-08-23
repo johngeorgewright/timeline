@@ -27,7 +27,7 @@ Use the `Timeline` class to generate an `AsncyIterator` of timeline values.
 
 ```javascript
 const timeline = new Timeline(`
-  --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X-|
+  --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--<Date>--T10--X-|
 `)
 
 for await (const value of timeline) {
@@ -97,6 +97,10 @@ Although the keyword `null` can be used, a shorter `N` can also be used.
 ### Booleans
 
 Althought the keywords `true` & `false` can be used, the shorter versions `T` & `F` can also be used.
+
+### Instances
+
+Although we cannot actually provide instances through a timeline string, we can represent one. Use `<InstanceName>` and receive a `TimelineInstanceOf<{ InstanceName }>` object.
 
 ### Numbers, Strings, Boolean, Objects & Arrays
 
