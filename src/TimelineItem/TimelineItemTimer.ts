@@ -68,7 +68,7 @@ export class TimelineTimer {
     this.#state = {
       started: true,
       start,
-      end: start - this.#ms,
+      end: start + this.#ms,
       promise: timeout(this.#ms),
     }
   }
