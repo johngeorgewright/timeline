@@ -71,6 +71,38 @@ export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
       .join('')
   }
 
+  /**
+   * Displays the current position of timeline.
+   *
+   * @example
+   * ```
+   * const timeline = new Timeline('--{foo: bar}--4--|')
+   * await timeline.next()
+   * await timeline.next()
+   * await timeline.next()
+   * await timeline.next()
+   * await timeline.next()
+   * console.info(timeline.displayTimelinePosition())
+   * `
+   * --{foo: bar}--4--|
+   *             ^
+   * `
+   * ```
+   */
+  displayTimelinePosition() {
+    if (this.position < 0)
+      return ` ${this.#unparsed}
+^`
+
+    let length = 0
+    for (let i = 0; i < this.#position && i < this.#parsed.length; i++) {
+      length += this.#parsed[i].rawValue.length
+    }
+
+    return `${this.#unparsed}
+${' '.repeat(length)}^`
+  }
+
   hasMoreItems() {
     return (
       this.#position < this.#parsed.length - 1 &&
@@ -81,7 +113,7 @@ export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
             !(value instanceof TimelineItemDash) &&
             !(value instanceof TimelineItemClose) &&
             !(value instanceof TimelineItemNeverReach) &&
-            !(value instanceof TimelineItemTimer && value.get().finished)
+            !(value instanceof TimelineItemTimer && value.get().finished),
         ).length
     )
   }
@@ -119,7 +151,7 @@ export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
       const result = search(Items, (Item) => Item.parse($timeline))
       if (!result)
         throw new Error(
-          `Cannot find a TimelineParsable capable of parsing ${$timeline}`
+          `Cannot find a TimelineParsable capable of parsing ${$timeline}`,
         )
       results.push(result[0])
       $timeline = result[1]

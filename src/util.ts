@@ -1,5 +1,5 @@
 /**
- * Much like Array.prototype.find() however it results
+ * Much like Array.prototype.find() however it returns
  * the result of the callback.
  *
  * @group Utils

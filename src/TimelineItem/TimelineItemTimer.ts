@@ -44,21 +44,33 @@ export class TimelineItemTimer extends TimelineItem<TimelineTimer> {
  * Represents a timer in a timeline.
  */
 export class TimelineTimer {
-  #started = false
-  #start?: number
-  #end?: number
+  #state:
+    | {
+        started: false
+      }
+    | {
+        started: true
+        start: number
+        end: number
+        promise: Promise<void>
+      } = {
+    started: false,
+  }
+
   readonly #ms: number
-  #promise?: Promise<void>
 
   constructor(ms: number) {
     this.#ms = ms
   }
 
   start() {
-    this.#started = true
-    this.#start = Date.now()
-    this.#end = this.#start + this.#ms
-    this.#promise = timeout(this.#ms)
+    const start = Date.now()
+    this.#state = {
+      started: true,
+      start,
+      end: start - this.#ms,
+      promise: timeout(this.#ms),
+    }
   }
 
   toJSON() {
@@ -66,23 +78,27 @@ export class TimelineTimer {
       name: 'TimelineTimer',
       finished: this.finished,
       ms: this.#ms,
-      started: this.#started,
+      started: this.#state.started,
       timeLeft: this.timeLeft,
     }
   }
 
   toString() {
     return `TimelineTimer(${this.ms}ms) { ${
-      this.finished ? 'finished' : this.#started ? `${this.timeLeft}ms` : ''
+      this.finished
+        ? 'finished'
+        : this.#state.started
+        ? `${this.timeLeft}ms`
+        : ''
     } }`
   }
 
   get timeLeft() {
-    return this.#end === undefined ? this.#end : this.#end - Date.now()
+    return this.#state.started ? this.#state.end - Date.now() : undefined
   }
 
   get started() {
-    return this.#started
+    return this.#state.started
   }
 
   get finished() {
@@ -91,7 +107,7 @@ export class TimelineTimer {
   }
 
   get promise() {
-    return this.#promise
+    return this.#state.started ? this.#state.promise : undefined
   }
 
   get ms() {

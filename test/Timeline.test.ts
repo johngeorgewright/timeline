@@ -5,18 +5,20 @@ import {
   Timeline,
   TimelineError,
   TimelineTimer,
-  TimelineInstanceOf
+  TimelineInstanceOf,
 } from '@johngw/timeline'
+
+let timeline: Timeline
+
+beforeEach(() => {
+  timeline = new Timeline(
+    '--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|',
+  )
+})
 
 test('Timeline', async () => {
   expect(
-    (
-      await asyncIterableToArray(
-        new Timeline(
-          '--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|'
-        )
-      )
-    ).map((x) => x.get())
+    (await asyncIterableToArray(timeline)).map((x) => x.get()),
   ).toStrictEqual([
     ...dashes(2),
     1,
@@ -49,6 +51,34 @@ test('Timeline', async () => {
     ...dashes(1),
     CloseTimeline,
   ])
+})
+
+test('displayTimelinePosition', async () => {
+  expect(timeline.displayTimelinePosition()).toBe(
+    ` --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
+^`,
+  )
+
+  await timeline.next()
+  expect(timeline.displayTimelinePosition()).toBe(
+    `
+--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
+^
+`.trim(),
+  )
+
+  await timeline.next()
+  await timeline.next()
+  await timeline.next()
+  await timeline.next()
+  await timeline.next()
+  await timeline.next()
+  expect(timeline.displayTimelinePosition()).toBe(
+    `
+--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
+               ^
+`.trim(),
+  )
 })
 
 function dashes(amount: number) {
