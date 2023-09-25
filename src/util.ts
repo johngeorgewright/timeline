@@ -38,6 +38,21 @@ export async function asyncIterableToArray<T>(iterable: AsyncIterable<T>) {
 }
 
 /**
+ * Reduces an async iterable in to a value.
+ *
+ * @group Utils
+ * @category Iterable
+ */
+export async function asyncIterableReduce<I, O>(
+  iterator: AsyncIterable<I>,
+  out: O,
+  reduce: (out: O, item: I) => O | Promise<O>
+) {
+  for await (const item of iterator) out = await reduce(out, item)
+  return out
+}
+
+/**
  * Returns a promise that resolves in `ms` milliseconds.
  *
  * @group Utils

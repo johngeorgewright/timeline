@@ -1,4 +1,4 @@
-import { asyncIterableToArray, search } from '#util'
+import { asyncIterableReduce, search } from '#util'
 import { TimelineItemBoolean } from '@johngw/timeline/TimelineItemBoolean'
 import { TimelineItemClose } from '@johngw/timeline/TimelineItemClose'
 import { TimelineItemError } from '@johngw/timeline/TimelineItemError'
@@ -53,8 +53,8 @@ export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
   #position = -1
 
   constructor(timeline: string) {
-    this.#unparsed = timeline
-    this.#parsed = this.#parse(timeline)
+    this.#unparsed = timeline.trim()
+    this.#parsed = this.#parse()
   }
 
   get position() {
@@ -66,9 +66,7 @@ export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
   }
 
   async toTimeline() {
-    return (await asyncIterableToArray(this))
-      .map((x) => x.toTimeline())
-      .join('')
+    return asyncIterableReduce(this, '', (out, item) => out + item.toTimeline())
   }
 
   /**
@@ -85,20 +83,18 @@ export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
    * console.info(timeline.displayTimelinePosition())
    * `
    * --{foo: bar}--4--|
-   *             ^
+   *              ^
    * `
    * ```
    */
   displayTimelinePosition() {
-    const unparsed = this.#unparsed.trim()
-    if (this.position < 0)
+    const unparsed = this.#unparsed
+    if (this.#position < 0)
       return ` ${unparsed}
 ^`
-
     let length = 0
-    for (let i = 0; i < this.#position && i < this.#parsed.length; i++) {
+    for (let i = 0; i < this.#position && i < this.#parsed.length; i++)
       length += this.#parsed[i].rawValue.length
-    }
 
     return `${unparsed}
 ${' '.repeat(length)}^`
@@ -144,9 +140,9 @@ ${' '.repeat(length)}^`
     return this
   }
 
-  #parse(timeline: string) {
+  #parse() {
     const results: ParsedTimelineItem[] = []
-    let $timeline = timeline.trim()
+    let $timeline = this.#unparsed
 
     while ($timeline.length) {
       const result = search(Items, (Item) => Item.parse($timeline))
