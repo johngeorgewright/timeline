@@ -38,7 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/github", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:9.0.6"],\
             ["@semantic-release/release-notes-generator", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:11.0.7"],\
             ["@types/jest", "npm:29.5.5"],\
-            ["@types/js-yaml", "npm:4.0.5"],\
+            ["@types/js-yaml", "npm:4.0.6"],\
             ["@types/node", "npm:18.17.18"],\
             ["@types/semantic-release", "npm:20.0.1"],\
             ["@types/source-map-support", "npm:0.5.7"],\
@@ -1740,7 +1740,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/github", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:9.0.6"],\
             ["@semantic-release/release-notes-generator", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:11.0.7"],\
             ["@types/jest", "npm:29.5.5"],\
-            ["@types/js-yaml", "npm:4.0.5"],\
+            ["@types/js-yaml", "npm:4.0.6"],\
             ["@types/node", "npm:18.17.18"],\
             ["@types/semantic-release", "npm:20.0.1"],\
             ["@types/source-map-support", "npm:0.5.7"],\
@@ -3000,10 +3000,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/js-yaml", [\
-        ["npm:4.0.5", {\
-          "packageLocation": "./.yarn/cache/@types-js-yaml-npm-4.0.5-bb64d71397-7dcac8c50f.zip/node_modules/@types/js-yaml/",\
+        ["npm:4.0.6", {\
+          "packageLocation": "./.yarn/cache/@types-js-yaml-npm-4.0.6-2552380aa3-d4439ec2cc.zip/node_modules/@types/js-yaml/",\
           "packageDependencies": [\
-            ["@types/js-yaml", "npm:4.0.5"]\
+            ["@types/js-yaml", "npm:4.0.6"]\
           ],\
           "linkType": "HARD"\
         }]\
