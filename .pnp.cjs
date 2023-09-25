@@ -50,7 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["lint-staged", "npm:14.0.1"],\
             ["nodemon", "npm:3.0.1"],\
-            ["prettier", "npm:2.8.7"],\
+            ["prettier", "npm:2.8.8"],\
             ["renamer", "npm:4.0.0"],\
             ["rimraf", "npm:5.0.1"],\
             ["semantic-release", "npm:22.0.5"],\
@@ -1752,7 +1752,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["js-yaml", "npm:4.1.0"],\
             ["lint-staged", "npm:14.0.1"],\
             ["nodemon", "npm:3.0.1"],\
-            ["prettier", "npm:2.8.7"],\
+            ["prettier", "npm:2.8.8"],\
             ["renamer", "npm:4.0.0"],\
             ["rimraf", "npm:5.0.1"],\
             ["semantic-release", "npm:22.0.5"],\
@@ -9772,10 +9772,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:2.8.7", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.8.7-1962ac9483-fdc8f2616f.zip/node_modules/prettier/",\
+        ["npm:2.8.8", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.8.8-430828a36c-b49e409431.zip/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:2.8.7"]\
+            ["prettier", "npm:2.8.8"]\
           ],\
           "linkType": "HARD"\
         }]\
