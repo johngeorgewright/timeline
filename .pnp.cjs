@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.6"],\
             ["@types/node", "npm:18.17.18"],\
             ["@types/semantic-release", "npm:20.0.2"],\
-            ["@types/source-map-support", "npm:0.5.7"],\
+            ["@types/source-map-support", "npm:0.5.8"],\
             ["commitizen", "npm:4.3.0"],\
             ["concurrently", "npm:8.2.1"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
@@ -1743,7 +1743,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/js-yaml", "npm:4.0.6"],\
             ["@types/node", "npm:18.17.18"],\
             ["@types/semantic-release", "npm:20.0.2"],\
-            ["@types/source-map-support", "npm:0.5.7"],\
+            ["@types/source-map-support", "npm:0.5.8"],\
             ["commitizen", "npm:4.3.0"],\
             ["concurrently", "npm:8.2.1"],\
             ["cz-conventional-changelog", "npm:3.3.0"],\
@@ -3153,10 +3153,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/source-map-support", [\
-        ["npm:0.5.7", {\
-          "packageLocation": "./.yarn/cache/@types-source-map-support-npm-0.5.7-0034838851-6da844f0b8.zip/node_modules/@types/source-map-support/",\
+        ["npm:0.5.8", {\
+          "packageLocation": "./.yarn/cache/@types-source-map-support-npm-0.5.8-fda76625f5-333d77b70f.zip/node_modules/@types/source-map-support/",\
           "packageDependencies": [\
-            ["@types/source-map-support", "npm:0.5.7"],\
+            ["@types/source-map-support", "npm:0.5.8"],\
             ["source-map", "npm:0.6.1"]\
           ],\
           "linkType": "HARD"\
