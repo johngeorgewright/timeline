@@ -15,6 +15,13 @@ export abstract class TimelineItem<T> {
   }
 
   /**
+   * If returns true, the item can be considered finished or "unimportant".
+   */
+  get finished(): boolean {
+    return false
+  }
+
+  /**
    * Returns the value the `TimelineItem` decorates.
    */
   abstract get(): T

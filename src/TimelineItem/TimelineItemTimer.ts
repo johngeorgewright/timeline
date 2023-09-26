@@ -1,4 +1,5 @@
-import { staticImplements, timeout } from '#util'
+import { timeout } from '#util'
+import { staticImplements } from '@johngw/timeline/staticImplements'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -16,6 +17,10 @@ export class TimelineItemTimer extends TimelineItem<TimelineTimer> {
   constructor(ms: number) {
     super(`T${ms}`)
     this.#timer = new TimelineTimer(ms)
+  }
+
+  override get finished(): boolean {
+    return this.#timer.finished
   }
 
   override onReach() {

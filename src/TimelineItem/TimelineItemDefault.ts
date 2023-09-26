@@ -1,4 +1,5 @@
-import { staticImplements, takeCharsUntil } from '#util'
+import { takeCharsUntil } from '#util'
+import { staticImplements } from '@johngw/timeline/staticImplements'
 import yaml from 'js-yaml'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 

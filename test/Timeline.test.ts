@@ -6,19 +6,23 @@ import {
   TimelineError,
   TimelineTimer,
   TimelineInstanceOf,
+  DefaultParsers,
+  TimelineItem,
+  TimelineParsable,
+  staticImplements,
 } from '@johngw/timeline'
 
-let timeline: Timeline
+let timeline: Timeline<DefaultParsers>
 
 beforeEach(() => {
-  timeline = new Timeline(
-    '--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|',
+  timeline = Timeline.create(
+    '--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|'
   )
 })
 
 test('Timeline', async () => {
   expect(
-    (await asyncIterableToArray(timeline)).map((x) => x.get()),
+    (await asyncIterableToArray(timeline)).map((x) => x.get())
   ).toStrictEqual([
     ...dashes(2),
     1,
@@ -56,7 +60,7 @@ test('Timeline', async () => {
 test('displayTimelinePosition', async () => {
   expect(timeline.displayTimelinePosition()).toBe(
     ` --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
-^`,
+^`
   )
 
   await timeline.next()
@@ -64,7 +68,7 @@ test('displayTimelinePosition', async () => {
     `
 --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
 ^
-`.trim(),
+`.trim()
   )
 
   await timeline.next()
@@ -77,8 +81,38 @@ test('displayTimelinePosition', async () => {
     `
 --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
                ^
-`.trim(),
+`.trim()
   )
+})
+
+test('custom parser', async () => {
+  @staticImplements<TimelineParsable<FooParser>>()
+  class FooParser extends TimelineItem<'BAR'> {
+    get() {
+      return 'BAR' as const
+    }
+
+    static parse(timeline: string) {
+      return timeline.startsWith('FOO')
+        ? ([new FooParser('FOO'), timeline.slice(3)] as const)
+        : undefined
+    }
+  }
+
+  const timeline = Timeline.create('--1--2--FOO--|', [FooParser])
+
+  expect(
+    (await asyncIterableToArray(timeline)).map((x) => x.get())
+  ).toStrictEqual([
+    ...dashes(2),
+    1,
+    ...dashes(2),
+    2,
+    ...dashes(2),
+    'BAR',
+    ...dashes(2),
+    CloseTimeline,
+  ])
 })
 
 function dashes(amount: number) {

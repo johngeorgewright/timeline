@@ -1,4 +1,4 @@
-import { staticImplements } from '#util'
+import { staticImplements } from '@johngw/timeline/staticImplements'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
