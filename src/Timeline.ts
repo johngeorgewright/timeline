@@ -133,7 +133,7 @@ ${' '.repeat(length)}^`
       this.#position < this.#parsed.length - 1 &&
       !!this.#parsed
         .slice(this.#position + 1)
-        .filter((value: TimelineItem<unknown>) => value.finished).length
+        .filter((value: TimelineItem<unknown>) => !value.finished).length
     )
   }
 
