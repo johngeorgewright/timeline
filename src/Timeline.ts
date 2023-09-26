@@ -31,13 +31,20 @@ export type DefaultParsers = typeof DefaultParsers
  * The union of configured {@link TimelineItem} instances.
  */
 export type ParsedTimelineItem<
-  Parsers extends TimelineParsable<TimelineItem<unknown>>[]
+  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers
 > = Parsers extends Array<infer T>
   ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
     T extends abstract new (...args: any) => any
     ? InstanceType<T>
     : never
   : never
+
+/**
+ * The union of configured TimelineItem contained values.
+ */
+export type ParsedTimelineItemValue<
+  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers
+> = ParsedTimelineItem<Parsers> extends TimelineItem<infer V> ? V : never
 
 /**
  * Given a timeline, parse it in to a list of {@link TimelineItem} objects.
@@ -55,6 +62,13 @@ export class Timeline<Parsers extends TimelineParsable<TimelineItem<unknown>>[]>
     this.#unparsed = timeline.trim()
     this.#parsed = this.#parse()
   }
+
+  static create(timeline: string): Timeline<DefaultParsers>
+
+  static create<Parsers extends TimelineParsable<TimelineItem<unknown>>[]>(
+    timeline: string,
+    Items: Parsers
+  ): Timeline<[...Parsers, ...DefaultParsers]>
 
   static create<Parsers extends TimelineParsable<TimelineItem<unknown>>[]>(
     timeline: string,
