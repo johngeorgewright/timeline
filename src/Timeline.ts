@@ -49,8 +49,9 @@ export type ParsedTimelineItemValue<
 /**
  * Given a timeline, parse it in to a list of {@link TimelineItem} objects.
  */
-export class Timeline<Parsers extends TimelineParsable<TimelineItem<unknown>>[]>
-  implements AsyncIterableIterator<ParsedTimelineItem<Parsers>>
+export class Timeline<
+  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers
+> implements AsyncIterableIterator<ParsedTimelineItem<Parsers>>
 {
   readonly #unparsed: string
   readonly #parsed: ParsedTimelineItem<Parsers>[]

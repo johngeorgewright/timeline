@@ -6,13 +6,12 @@ import {
   TimelineError,
   TimelineTimer,
   TimelineInstanceOf,
-  DefaultParsers,
   TimelineItem,
   TimelineParsable,
   staticImplements,
 } from '@johngw/timeline'
 
-let timeline: Timeline<DefaultParsers>
+let timeline: Timeline
 
 beforeEach(() => {
   timeline = Timeline.create(
