@@ -13,7 +13,7 @@ import { TimelineItemInstance } from '@johngw/timeline/TimelineItemInstance'
 /**
  * The configured Timeline parsers.
  */
-const Items = [
+export const DefaultParsers = [
   TimelineItemDash,
   TimelineItemBoolean,
   TimelineItemClose,
@@ -25,10 +25,14 @@ const Items = [
   TimelineItemDefault,
 ] satisfies TimelineParsable<TimelineItem<unknown>>[]
 
+export type DefaultParsers = typeof DefaultParsers
+
 /**
  * The union of configured {@link TimelineItem} instances.
  */
-export type ParsedTimelineItem = typeof Items extends Array<infer T>
+export type ParsedTimelineItem<
+  Parsers extends TimelineParsable<TimelineItem<unknown>>[]
+> = Parsers extends Array<infer T>
   ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
     T extends abstract new (...args: any) => any
     ? InstanceType<T>
@@ -36,25 +40,34 @@ export type ParsedTimelineItem = typeof Items extends Array<infer T>
   : never
 
 /**
- * The union of configured TimelineItem contained values.
- */
-export type ParsedTimelineItemValue = ParsedTimelineItem extends TimelineItem<
-  infer V
->
-  ? V
-  : never
-
-/**
  * Given a timeline, parse it in to a list of {@link TimelineItem} objects.
  */
-export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
+export class Timeline<Parsers extends TimelineParsable<TimelineItem<unknown>>[]>
+  implements AsyncIterableIterator<ParsedTimelineItem<Parsers>>
+{
   readonly #unparsed: string
-  readonly #parsed: ParsedTimelineItem[]
+  readonly #parsed: ParsedTimelineItem<Parsers>[]
   #position = -1
+  #Parsers: Parsers
 
-  constructor(timeline: string) {
+  constructor(timeline: string, Parsers: Parsers) {
+    this.#Parsers = Parsers
     this.#unparsed = timeline.trim()
     this.#parsed = this.#parse()
+  }
+
+  static create<Parsers extends TimelineParsable<TimelineItem<unknown>>[]>(
+    timeline: string,
+    Items?: Parsers
+  ): Timeline<[...Parsers, ...DefaultParsers]> {
+    return new Timeline<[...Parsers, ...DefaultParsers]>(timeline, [
+      ...((Items || []) as Parsers),
+      ...DefaultParsers,
+    ])
+  }
+
+  get Parsers() {
+    return this.#Parsers
   }
 
   get position() {
@@ -100,18 +113,12 @@ export class Timeline implements AsyncIterableIterator<ParsedTimelineItem> {
 ${' '.repeat(length)}^`
   }
 
-  hasMoreItems() {
+  hasUnfinishedItems() {
     return (
       this.#position < this.#parsed.length - 1 &&
       !!this.#parsed
         .slice(this.#position + 1)
-        .filter(
-          (value) =>
-            !(value instanceof TimelineItemDash) &&
-            !(value instanceof TimelineItemClose) &&
-            !(value instanceof TimelineItemNeverReach) &&
-            !(value instanceof TimelineItemTimer && value.get().finished)
-        ).length
+        .filter((value: TimelineItem<unknown>) => value.finished).length
     )
   }
 
@@ -119,7 +126,9 @@ ${' '.repeat(length)}^`
     return this.#parsed
   }
 
-  async next(): Promise<IteratorResult<ParsedTimelineItem, undefined>> {
+  async next(): Promise<
+    IteratorResult<ParsedTimelineItem<Parsers>, undefined>
+  > {
     const previous = this.#parsed[this.position]
     if (previous) await previous.onPass()
 
@@ -141,16 +150,16 @@ ${' '.repeat(length)}^`
   }
 
   #parse() {
-    const results: ParsedTimelineItem[] = []
+    const results: ParsedTimelineItem<Parsers>[] = []
     let $timeline = this.#unparsed
 
     while ($timeline.length) {
-      const result = search(Items, (Item) => Item.parse($timeline))
+      const result = search(this.#Parsers, (Item) => Item.parse($timeline))
       if (!result)
         throw new Error(
           `Cannot find a TimelineParsable capable of parsing ${$timeline}`
         )
-      results.push(result[0])
+      results.push(result[0] as ParsedTimelineItem<Parsers>)
       $timeline = result[1]
     }
 

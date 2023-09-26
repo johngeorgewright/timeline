@@ -26,7 +26,7 @@ merge([
 Use the `Timeline` class to generate an `AsncyIterator` of timeline values.
 
 ```javascript
-const timeline = new Timeline(`
+const timeline = Timeline.create(`
   --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--<Date>--T10--X-|
 `)
 
@@ -105,3 +105,124 @@ Although we cannot actually provide instances through a timeline string, we can 
 ### Numbers, Strings, Boolean, Objects & Arrays
 
 Any combination of characters, other than a dash (`-`) or any of the above syntax, will be parsed by [js-yaml](https://github.com/nodeca/js-yaml).
+
+## Customizing
+
+You have the ability to add your own timeline items.
+
+### Creating the parser
+
+Each timeline item must have a parser. It should take from **the beginning** of a given timeline string and returning a binary tuple where the first value is an instance of the timeline item and the second value is the remaining timeline string.
+
+```typescript
+import { staticImplements } from '@johngw/timeline/staticImplements'
+import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
+
+@staticImplements<TimelineParsable<FooBarTimelineItem>>()
+export class FooBarTimelineItem extends TimelineItem<string> {
+  static parse(timeline: string) {
+    const result = this.createItemRegExp('(FOO)').exec(timeline)
+    return result
+      ? [new FooBarTimelineItem(result[1]), timeline.slice(result[1].length)]
+      : undefined
+  }
+}
+```
+
+If your parser returns `undefined` it the iterator will keep moving on to the following parsers until it receives a tuple.
+
+Now we need to implement the rest of the `TimelineItem`.
+
+```typescript
+import { staticImplements } from '@johngw/timeline/staticImplements'
+import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
+
+@staticImplements<TimelineParsable<FooBarTimelineItem>>()
+export class FooBarTimelineItem extends TimelineItem<string> {
+  static parse(timeline: string) {
+    const result = this.createItemRegExp('(FOO)').exec(timeline)
+    return result
+      ? [new FooBarTimelineItem(result[1]), timeline.slice(result[1].length)]
+      : undefined
+  }
+
+  get() {
+    return 'BAR'
+  }
+}
+```
+
+`FooBarTimelineItem` will now be used whenever there is `'FOO'` in the timeline. The value, however, will be `'BAR'`.
+
+```typescript
+const timeline = Timeline.create('--1--2--FOO--', [FooBarTimelineItem])
+
+let output = ''
+for await (const item of timeline) {
+  const value = item.get()
+  output += value === undefined ? '-' : value
+}
+
+console.info(output)
+// '--1--2--BAR--'
+```
+
+### Lifecycle Hooks
+
+There are lifecycle methods to implement if you wish to hook in to the timeline iterator.
+
+#### `onReach`
+
+This method is called when a timeline item is reached.
+
+```typescript
+import { staticImplements } from '@johngw/timeline/staticImplements'
+import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
+
+@staticImplements<TimelineParsable<FooBarTimelineItem>>()
+export class FooBarTimelineItem extends TimelineItem<string> {
+  static parse(timeline: string) {
+    const result = this.createItemRegExp('(FOO)').exec(timeline)
+    return result
+      ? [new FooBarTimelineItem(result[1]), timeline.slice(result[1].length)]
+      : undefined
+  }
+
+  get() {
+    return 'BAR'
+  }
+
+  override onReach() {
+    console.info('Foo has happened')
+    return super.onReach()
+  }
+}
+```
+
+#### `onPass`
+
+A method that is called just before reaching the next item.
+
+```typescript
+import { staticImplements } from '@johngw/timeline/staticImplements'
+import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
+
+@staticImplements<TimelineParsable<FooBarTimelineItem>>()
+export class FooBarTimelineItem extends TimelineItem<string> {
+  static parse(timeline: string) {
+    const result = this.createItemRegExp('(FOO)').exec(timeline)
+    return result
+      ? [new FooBarTimelineItem(result[1]), timeline.slice(result[1].length)]
+      : undefined
+  }
+
+  get() {
+    return 'BAR'
+  }
+
+  override onPass() {
+    console.info('Successfully passed the foo item')
+    return super.onPass()
+  }
+}
+```

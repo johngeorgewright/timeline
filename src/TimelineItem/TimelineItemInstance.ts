@@ -1,9 +1,9 @@
-import { staticImplements } from '#util'
+import { staticImplements } from '@johngw/timeline/staticImplements'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
  * A timeline item that would represent an instance of something.
- * 
+ *
  * @remarks
  * Used with `<InstanceName>`.
  */
@@ -26,9 +26,9 @@ export class TimelineItemInstance extends TimelineItem<TimelineInstanceOf> {
     const result = this.#regexp.exec(timeline)
     return result
       ? ([
-        new TimelineItemInstance(result[2]),
-        timeline.slice(result[1].length)
-      ] as const)
+          new TimelineItemInstance(result[2]),
+          timeline.slice(result[1].length),
+        ] as const)
       : undefined
   }
 }

@@ -9,6 +9,10 @@
       "import": "./dist/es/index.js",
       "require": "./dist/common/index.cjs"
     },
+    "./staticImplements": {
+      "import": "./dist/es/staticImplements.js",
+      "require": "./dist/common/staticImplements.cjs"
+    },
     "./Timeline": {
       "import": "./dist/es/Timeline.js",
       "require": "./dist/common/Timeline.cjs"

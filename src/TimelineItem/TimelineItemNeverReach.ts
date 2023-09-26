@@ -1,4 +1,4 @@
-import { staticImplements } from '#util'
+import { staticImplements } from '@johngw/timeline/staticImplements'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -18,6 +18,10 @@ export class TimelineItemNeverReach extends TimelineItem<NeverReachTimelineError
 
   get() {
     return this.#error
+  }
+
+  override get finished(): boolean {
+    return true
   }
 
   static readonly #regexp = this.createItemRegExp('X')
