@@ -52,7 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:3.0.1"],\
             ["prettier", "npm:2.8.8"],\
             ["renamer", "npm:4.0.0"],\
-            ["rimraf", "npm:5.0.4"],\
+            ["rimraf", "npm:5.0.5"],\
             ["semantic-release", "npm:22.0.5"],\
             ["source-map-support", "npm:0.5.21"],\
             ["ts-jest", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:29.1.1"],\
@@ -1754,7 +1754,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:3.0.1"],\
             ["prettier", "npm:2.8.8"],\
             ["renamer", "npm:4.0.0"],\
-            ["rimraf", "npm:5.0.4"],\
+            ["rimraf", "npm:5.0.5"],\
             ["semantic-release", "npm:22.0.5"],\
             ["source-map-support", "npm:0.5.21"],\
             ["ts-jest", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:29.1.1"],\
@@ -10360,10 +10360,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:5.0.4", {\
-          "packageLocation": "./.yarn/cache/rimraf-npm-5.0.4-525827beb5-4423011967.zip/node_modules/rimraf/",\
+        ["npm:5.0.5", {\
+          "packageLocation": "./.yarn/cache/rimraf-npm-5.0.5-19228633fd-d66eef829b.zip/node_modules/rimraf/",\
           "packageDependencies": [\
-            ["rimraf", "npm:5.0.4"],\
+            ["rimraf", "npm:5.0.5"],\
             ["glob", "npm:10.3.9"]\
           ],\
           "linkType": "HARD"\
