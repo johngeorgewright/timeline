@@ -85,9 +85,9 @@
   },
   "homepage": "https://github.com/johngeorgewright/timeline#readme",
   "devDependencies": {
-    "@commitlint/cli": "17.7.1",
-    "@commitlint/config-conventional": "17.7.0",
-    "@commitlint/types": "17.4.4",
+    "@commitlint/cli": "17.8.1",
+    "@commitlint/config-conventional": "17.8.1",
+    "@commitlint/types": "17.8.1",
     "@jest/types": "29.6.3",
     "@semantic-release/commit-analyzer": "11.0.0",
     "@semantic-release/exec": "6.0.3",
