@@ -1252,7 +1252,7 @@ __metadata:
     "@types/js-yaml": 4.0.6
     "@types/node": 18.18.0
     "@types/semantic-release": 20.0.2
-    "@types/source-map-support": 0.5.8
+    "@types/source-map-support": 0.5.10
     commitizen: 4.3.0
     concurrently: 8.2.1
     cz-conventional-changelog: 3.3.0
@@ -2393,12 +2393,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/source-map-support@npm:0.5.8":
-  version: 0.5.8
-  resolution: "@types/source-map-support@npm:0.5.8"
+"@types/source-map-support@npm:0.5.10":
+  version: 0.5.10
+  resolution: "@types/source-map-support@npm:0.5.10"
   dependencies:
     source-map: ^0.6.0
-  checksum: 333d77b70fd793de066572aa1c7d988ac351e6591b860db8df05bdb2ad40ee2aa1a31d66c3c0d019137d72fb7b806dfc55c2b47958d1599e775e1d37dc1f736d
+  checksum: ef287caea52a41b600a128d36cf961f048913e30fe143f7d882d19014635d0ca89e27013a48b0e6353ca277689d633c2ef65a25b2f8cd6d82916a2f908f18c38
   languageName: node
   linkType: hard
 
