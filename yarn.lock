@@ -1249,7 +1249,7 @@ __metadata:
     "@semantic-release/github": 9.1.0
     "@semantic-release/release-notes-generator": 12.0.0
     "@types/jest": 29.5.5
-    "@types/js-yaml": 4.0.6
+    "@types/js-yaml": 4.0.9
     "@types/node": 18.18.0
     "@types/semantic-release": 20.0.2
     "@types/source-map-support": 0.5.8
@@ -2335,10 +2335,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:4.0.6":
-  version: 4.0.6
-  resolution: "@types/js-yaml@npm:4.0.6"
-  checksum: d4439ec2cc830d355c2a1d7508f49888931b2cfe59d786d27621edd530bf06314b1dceeaa759e21f9b035a0ff623a0ca306752ebb73df9485c02abe045bd962c
+"@types/js-yaml@npm:4.0.9":
+  version: 4.0.9
+  resolution: "@types/js-yaml@npm:4.0.9"
+  checksum: e5e5e49b5789a29fdb1f7d204f82de11cb9e8f6cb24ab064c616da5d6e1b3ccfbf95aa5d1498a9fbd3b9e745564e69b4a20b6c530b5a8bbb2d4eb830cda9bc69
   languageName: node
   linkType: hard
 
