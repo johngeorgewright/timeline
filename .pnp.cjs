@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.5.5"],\
             ["@types/js-yaml", "npm:4.0.6"],\
             ["@types/node", "npm:18.18.0"],\
-            ["@types/semantic-release", "npm:20.0.2"],\
+            ["@types/semantic-release", "npm:20.0.6"],\
             ["@types/source-map-support", "npm:0.5.8"],\
             ["commitizen", "npm:4.3.0"],\
             ["concurrently", "npm:8.2.1"],\
@@ -1742,7 +1742,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.5.5"],\
             ["@types/js-yaml", "npm:4.0.6"],\
             ["@types/node", "npm:18.18.0"],\
-            ["@types/semantic-release", "npm:20.0.2"],\
+            ["@types/semantic-release", "npm:20.0.6"],\
             ["@types/source-map-support", "npm:0.5.8"],\
             ["commitizen", "npm:4.3.0"],\
             ["concurrently", "npm:8.2.1"],\
@@ -2554,7 +2554,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@semantic-release-commit-analyzer-virtual-3a72221567/0/cache/@semantic-release-commit-analyzer-npm-11.0.0-9a2f899b1f-4714b51128.zip/node_modules/@semantic-release/commit-analyzer/",\
           "packageDependencies": [\
             ["@semantic-release/commit-analyzer", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:11.0.0"],\
-            ["@types/semantic-release", "npm:20.0.2"],\
+            ["@types/semantic-release", "npm:20.0.6"],\
             ["conventional-changelog-angular", "npm:7.0.0"],\
             ["conventional-commits-filter", "npm:4.0.0"],\
             ["conventional-commits-parser", "npm:5.0.0"],\
@@ -2620,7 +2620,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@semantic-release/exec", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:6.0.3"],\
             ["@semantic-release/error", "npm:3.0.0"],\
-            ["@types/semantic-release", "npm:20.0.2"],\
+            ["@types/semantic-release", "npm:20.0.6"],\
             ["aggregate-error", "npm:3.1.0"],\
             ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],\
             ["execa", "npm:5.1.1"],\
@@ -2648,7 +2648,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@semantic-release/git", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:10.0.1"],\
             ["@semantic-release/error", "npm:3.0.0"],\
-            ["@types/semantic-release", "npm:20.0.2"],\
+            ["@types/semantic-release", "npm:20.0.6"],\
             ["aggregate-error", "npm:3.1.0"],\
             ["debug", "virtual:4d5b41b4c144bc0f7c0e4c4c2164d0bc5d527811557a2fd7f2ec3307b1cf1ca97f42a730a90b32caada41091b3e922a1e5a2d8c6ff2841b6857305532c68aca8#npm:4.3.2"],\
             ["dir-glob", "npm:3.0.1"],\
@@ -2689,7 +2689,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@octokit/plugin-retry", "virtual:aa5036226020110cb03c1d4d913f29bfb3ef11153de412adb5b86249038324c5f7f11b98b4cc8d469991644d6d77ce82ef29a70bf2c319b66b5dd3fc31e2d880#npm:6.0.0"],\
             ["@octokit/plugin-throttling", "virtual:aa5036226020110cb03c1d4d913f29bfb3ef11153de412adb5b86249038324c5f7f11b98b4cc8d469991644d6d77ce82ef29a70bf2c319b66b5dd3fc31e2d880#npm:8.0.0"],\
             ["@semantic-release/error", "npm:4.0.0"],\
-            ["@types/semantic-release", "npm:20.0.2"],\
+            ["@types/semantic-release", "npm:20.0.6"],\
             ["aggregate-error", "npm:5.0.0"],\
             ["debug", "virtual:50e37043be1acfdf7937725b7d74aef4c69810b43ac5a25e26b5e903f030009562410c00098ae38ae5aee99bd1924c12abc3e4107f72b4d9b54731ba6e466239#npm:4.3.4"],\
             ["dir-glob", "npm:3.0.1"],\
@@ -2786,7 +2786,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@semantic-release-release-notes-generator-virtual-81003cc023/0/cache/@semantic-release-release-notes-generator-npm-12.0.0-102466c0f2-91c757c6cc.zip/node_modules/@semantic-release/release-notes-generator/",\
           "packageDependencies": [\
             ["@semantic-release/release-notes-generator", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:12.0.0"],\
-            ["@types/semantic-release", "npm:20.0.2"],\
+            ["@types/semantic-release", "npm:20.0.6"],\
             ["conventional-changelog-angular", "npm:7.0.0"],\
             ["conventional-changelog-writer", "npm:7.0.1"],\
             ["conventional-commits-filter", "npm:4.0.0"],\
@@ -3143,10 +3143,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/semantic-release", [\
-        ["npm:20.0.2", {\
-          "packageLocation": "./.yarn/cache/@types-semantic-release-npm-20.0.2-d34f7cebbe-2f58f25522.zip/node_modules/@types/semantic-release/",\
+        ["npm:20.0.6", {\
+          "packageLocation": "./.yarn/cache/@types-semantic-release-npm-20.0.6-da4497e6ad-ff1b125177.zip/node_modules/@types/semantic-release/",\
           "packageDependencies": [\
-            ["@types/semantic-release", "npm:20.0.2"],\
+            ["@types/semantic-release", "npm:20.0.6"],\
             ["@types/node", "npm:16.7.13"]\
           ],\
           "linkType": "HARD"\

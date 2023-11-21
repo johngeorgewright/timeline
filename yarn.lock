@@ -1251,7 +1251,7 @@ __metadata:
     "@types/jest": 29.5.5
     "@types/js-yaml": 4.0.6
     "@types/node": 18.18.0
-    "@types/semantic-release": 20.0.2
+    "@types/semantic-release": 20.0.6
     "@types/source-map-support": 0.5.8
     commitizen: 4.3.0
     concurrently: 8.2.1
@@ -2384,12 +2384,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semantic-release@npm:20.0.2":
-  version: 20.0.2
-  resolution: "@types/semantic-release@npm:20.0.2"
+"@types/semantic-release@npm:20.0.6":
+  version: 20.0.6
+  resolution: "@types/semantic-release@npm:20.0.6"
   dependencies:
     "@types/node": "*"
-  checksum: 2f58f25522a45305c353c109272abacb7836c902860c0124ff04e57172bb3cc0b4174d17e85a35a0e122602bd74268b9b41a54a6f022fe65f32c2ea50443d558
+  checksum: ff1b125177da493e2c2b59a2502f3eb7e4153738a81447607147b9044c1c72d48f9d7076c40e9b538a392090fc922160381f7aef099caf688b589f535823566a
   languageName: node
   linkType: hard
 
