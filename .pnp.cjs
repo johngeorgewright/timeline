@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:12.0.0"],\
             ["@types/jest", "npm:29.5.5"],\
             ["@types/js-yaml", "npm:4.0.6"],\
-            ["@types/node", "npm:18.18.0"],\
+            ["@types/node", "npm:18.19.2"],\
             ["@types/semantic-release", "npm:20.0.2"],\
             ["@types/source-map-support", "npm:0.5.8"],\
             ["commitizen", "npm:4.3.0"],\
@@ -1741,7 +1741,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/release-notes-generator", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:12.0.0"],\
             ["@types/jest", "npm:29.5.5"],\
             ["@types/js-yaml", "npm:4.0.6"],\
-            ["@types/node", "npm:18.18.0"],\
+            ["@types/node", "npm:18.19.2"],\
             ["@types/semantic-release", "npm:20.0.2"],\
             ["@types/source-map-support", "npm:0.5.8"],\
             ["commitizen", "npm:4.3.0"],\
@@ -3109,10 +3109,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:18.18.0", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-18.18.0-6c59c15776-61bcffa28e.zip/node_modules/@types/node/",\
+        ["npm:18.19.2", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.19.2-6e1404b6ff-6ae1e456f4.zip/node_modules/@types/node/",\
           "packageDependencies": [\
-            ["@types/node", "npm:18.18.0"]\
+            ["@types/node", "npm:18.19.2"],\
+            ["undici-types", "npm:5.26.5"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -11542,7 +11543,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.9"],\
             ["@tsconfig/node14", "npm:1.0.1"],\
             ["@tsconfig/node16", "npm:1.0.2"],\
-            ["@types/node", "npm:18.18.0"],\
+            ["@types/node", "npm:18.19.2"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
@@ -11723,6 +11724,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/undefsafe-npm-2.0.5-8c3bbf9354-f42ab3b577.zip/node_modules/undefsafe/",\
           "packageDependencies": [\
             ["undefsafe", "npm:2.0.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["undici-types", [\
+        ["npm:5.26.5", {\
+          "packageLocation": "./.yarn/cache/undici-types-npm-5.26.5-de4f7c7bb9-3192ef6f3f.zip/node_modules/undici-types/",\
+          "packageDependencies": [\
+            ["undici-types", "npm:5.26.5"]\
           ],\
           "linkType": "HARD"\
         }]\
