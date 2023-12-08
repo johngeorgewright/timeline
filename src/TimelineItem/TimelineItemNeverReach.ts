@@ -24,7 +24,7 @@ export class TimelineItemNeverReach extends TimelineItem<NeverReachTimelineError
     return true
   }
 
-  static readonly #regexp = this.createItemRegExp('X')
+  static readonly #regexp = this.createItemRegExp(/X/)
 
   static parse(timeline: string) {
     return this.#regexp.test(timeline)

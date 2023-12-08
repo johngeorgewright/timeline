@@ -20,7 +20,7 @@ export class TimelineItemBoolean extends TimelineItem<boolean> {
     return this.#value
   }
 
-  static readonly #regexp = this.createItemRegExp('([FT])')
+  static readonly #regexp = this.createItemRegExp(/([FT])/)
 
   static parse(timeline: string) {
     const result = this.#regexp.exec(timeline)

@@ -20,7 +20,7 @@ export class TimelineItemInstance extends TimelineItem<TimelineInstanceOf> {
     return new TimelineInstanceOf(this.#name)
   }
 
-  static readonly #regexp = this.createItemRegExp('(<(\\w+)>)')
+  static readonly #regexp = this.createItemRegExp(/(<(\w+)>)/)
 
   static parse(timeline: string) {
     const result = this.#regexp.exec(timeline)

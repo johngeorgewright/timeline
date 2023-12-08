@@ -55,8 +55,8 @@ export class Timeline<
 {
   readonly #unparsed: string
   readonly #parsed: ParsedTimelineItem<Parsers>[]
+  readonly #Parsers: Parsers
   #position = -1
-  #Parsers: Parsers
 
   constructor(timeline: string, Parsers: Parsers) {
     this.#Parsers = Parsers

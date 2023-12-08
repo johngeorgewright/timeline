@@ -37,7 +37,11 @@ export abstract class TimelineItem<T> {
    */
   async onPass() {
     const length = this.#rawValue.length - 1
-    for (let i = 0; i < length; i++) await timeout(1)
+    for (let i = 0; i < length; i++) await this.dash()
+  }
+
+  protected dash() {
+    return timeout(1)
   }
 
   /**
@@ -64,7 +68,7 @@ export abstract class TimelineItem<T> {
    * - a close symbol
    * - the end of the timeline
    */
-  static readonly regexEnding = '(?:-|\\||$)'
+  static readonly regexEnding = /(?:-|\||$)/
 
   /**
    * Creates a `RegExp` item to match your timeline item.
@@ -73,8 +77,8 @@ export abstract class TimelineItem<T> {
    * Prepends the regexp with a start character (`^`) and appends
    * it with {@link TimelineItem.regexEnding}.
    */
-  static createItemRegExp(regexp: string) {
-    return new RegExp(`^${regexp}${this.regexEnding}`)
+  static createItemRegExp(regexp: RegExp) {
+    return new RegExp(`^${regexp.source}${this.regexEnding.source}`)
   }
 }
 

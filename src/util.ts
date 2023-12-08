@@ -157,13 +157,6 @@ export function takeWhile<T>(
  * @group Utils
  * @category String
  */
-export function takeCharsUntil(string: string, matchingString: string): string
-
-export function takeCharsUntil(
-  string: string,
-  predicate: (x: string) => boolean
-): string
-
 export function takeCharsUntil(
   string: string,
   predicate: string | ((x: string) => boolean)

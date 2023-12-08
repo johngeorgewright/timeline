@@ -1,4 +1,3 @@
-import { timeout } from '#util'
 import { staticImplements } from '@johngw/timeline/staticImplements'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
@@ -24,7 +23,7 @@ export class TimelineItemDash extends TimelineItem<undefined> {
   }
 
   override async onReach() {
-    return timeout(1)
+    return this.dash()
   }
 
   static parse(timeline: string) {

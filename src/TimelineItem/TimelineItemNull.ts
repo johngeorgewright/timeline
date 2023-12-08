@@ -15,7 +15,7 @@ export class TimelineItemNull extends TimelineItem<null> {
     return null
   }
 
-  static readonly #regex = this.createItemRegExp('N')
+  static readonly #regex = this.createItemRegExp(/N/)
 
   static parse(timeline: string) {
     return this.#regex.test(timeline)
