@@ -10,18 +10,19 @@ import {
   TimelineParsable,
   staticImplements,
 } from '@johngw/timeline'
+import { beforeEach, expect, test } from 'vitest'
 
 let timeline: Timeline
 
 beforeEach(() => {
   timeline = Timeline.create(
-    '--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|'
+    '--1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|',
   )
 })
 
 test('Timeline', async () => {
   expect(
-    (await asyncIterableToArray(timeline)).map((x) => x.get())
+    (await asyncIterableToArray(timeline)).map((x) => x.get()),
   ).toStrictEqual([
     ...dashes(2),
     1,
@@ -59,7 +60,7 @@ test('Timeline', async () => {
 test('displayTimelinePosition', async () => {
   expect(timeline.displayTimelinePosition()).toBe(
     ` --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
-^`
+^`,
   )
 
   await timeline.next()
@@ -67,7 +68,7 @@ test('displayTimelinePosition', async () => {
     `
 --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
 ^
-`.trim()
+`.trim(),
   )
 
   await timeline.next()
@@ -80,7 +81,7 @@ test('displayTimelinePosition', async () => {
     `
 --1--{foo: bar}--[a,b]--true--T--false--F--null--N--E--E(err foo)--T10--X--<Date>-|
                ^
-`.trim()
+`.trim(),
   )
 })
 
@@ -101,7 +102,7 @@ test('custom parser', async () => {
   const timeline = Timeline.create('--1--2--FOO--|', [FooParser])
 
   expect(
-    (await asyncIterableToArray(timeline)).map((x) => x.get())
+    (await asyncIterableToArray(timeline)).map((x) => x.get()),
   ).toStrictEqual([
     ...dashes(2),
     1,
