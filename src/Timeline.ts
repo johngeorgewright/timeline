@@ -31,26 +31,27 @@ export type DefaultParsers = typeof DefaultParsers
  * The union of configured {@link TimelineItem} instances.
  */
 export type ParsedTimelineItem<
-  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers
-> = Parsers extends Array<infer T>
-  ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    T extends abstract new (...args: any) => any
-    ? InstanceType<T>
+  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers,
+> =
+  Parsers extends Array<infer T>
+    ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      T extends abstract new (...args: any) => any
+      ? InstanceType<T>
+      : never
     : never
-  : never
 
 /**
  * The union of configured TimelineItem contained values.
  */
 export type ParsedTimelineItemValue<
-  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers
+  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers,
 > = ParsedTimelineItem<Parsers> extends TimelineItem<infer V> ? V : never
 
 /**
  * Given a timeline, parse it in to a list of {@link TimelineItem} objects.
  */
 export class Timeline<
-  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers
+  Parsers extends TimelineParsable<TimelineItem<unknown>>[] = DefaultParsers,
 > implements AsyncIterableIterator<ParsedTimelineItem<Parsers>>
 {
   readonly #unparsed: string
@@ -68,12 +69,12 @@ export class Timeline<
 
   static create<Parsers extends TimelineParsable<TimelineItem<unknown>>[]>(
     timeline: string,
-    Items: Parsers
+    Items: Parsers,
   ): Timeline<[...Parsers, ...DefaultParsers]>
 
   static create<Parsers extends TimelineParsable<TimelineItem<unknown>>[]>(
     timeline: string,
-    Items?: Parsers
+    Items?: Parsers,
   ): Timeline<[...Parsers, ...DefaultParsers]> {
     return new Timeline<[...Parsers, ...DefaultParsers]>(timeline, [
       ...((Items || []) as Parsers),
@@ -172,7 +173,7 @@ ${' '.repeat(length)}^`
       const result = search(this.#Parsers, (Item) => Item.parse($timeline))
       if (!result)
         throw new Error(
-          `Cannot find a TimelineParsable capable of parsing ${$timeline}`
+          `Cannot find a TimelineParsable capable of parsing ${$timeline}`,
         )
       results.push(result[0] as ParsedTimelineItem<Parsers>)
       $timeline = result[1]
