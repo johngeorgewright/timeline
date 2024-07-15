@@ -66,11 +66,12 @@
     }
   },
   "scripts": {
-    "build": "yarn clean && tsc && tsc --project tsconfig.common.json; yarn build:covertcommonext",
+    "build": "yarn clean && tsc && yarn build:common",
+    "build:common": "tsc --project tsconfig.common.json; yarn build:covertcommonext",
     "build:covertcommonext": "renamer --force --find '/\\.(j|t)s/' --replace '.c$1s' dist/common/**/*",
     "clean": "rimraf dist",
     "prepare": "husky install",
-    "start": "yarn build && concurrently --names es,common,renamer 'yarn tsc --watch --preserveWatchOutput' 'yarn tsc --watch --preserveWatchOutput --project tsconfig.common.json' \"nodemon --ext js --exec 'yarn build:covertcommonext' --watch dist/common\"",
+    "start": "yarn tsc --watch --preserveWatchOutput",
     "test": "vitest test",
     "test:coverage": "jest --coverage"
   },
