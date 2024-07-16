@@ -22,10 +22,6 @@ export class TimelineItemDash extends TimelineItem<undefined> {
     return true
   }
 
-  override async onReach() {
-    return this.dash()
-  }
-
   static parse(timeline: string) {
     return timeline.startsWith('-')
       ? ([new TimelineItemDash(), timeline.slice(1)] as const)

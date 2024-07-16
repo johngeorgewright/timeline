@@ -37,7 +37,7 @@ export abstract class TimelineItem<T> {
    * that of a dash.
    */
   async onPass() {
-    const length = this.#rawValue.length - 1
+    const length = this.#rawValue.length
     for (let i = 0; i < length; i++) await this.dash()
   }
 
