@@ -1,4 +1,4 @@
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -8,7 +8,7 @@ import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
  * A dash signifies nothing happening. However, under the hood,
  * it's a 1ms delay.
  */
-@staticImplements<TimelineParsable<TimelineItemDash>>()
+@outerface<TimelineParsable<TimelineItemDash>>()
 export class TimelineItemDash extends TimelineItem<undefined> {
   constructor() {
     super('-')

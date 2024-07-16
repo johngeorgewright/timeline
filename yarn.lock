@@ -819,6 +819,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@johngw/outerface@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@johngw/outerface@npm:1.0.0"
+  dependencies:
+    tslib: "npm:^2.6.3"
+  checksum: 10/e4038a3e3874ad444a2c732cc46fe29304c603f7dde70889fb0a1a931a3264cf2df8503e97aec1cd6b9293e0eae1e789a9b4e178bfa70e0a2dcc6847932ac336
+  languageName: node
+  linkType: hard
+
 "@johngw/timeline@workspace:.":
   version: 0.0.0-use.local
   resolution: "@johngw/timeline@workspace:."
@@ -830,6 +839,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:19.2.2"
     "@commitlint/types": "npm:19.0.3"
     "@jest/types": "npm:29.6.3"
+    "@johngw/outerface": "npm:1.0.0"
     "@semantic-release/commit-analyzer": "npm:13.0.0"
     "@semantic-release/exec": "npm:6.0.3"
     "@semantic-release/git": "npm:10.0.1"

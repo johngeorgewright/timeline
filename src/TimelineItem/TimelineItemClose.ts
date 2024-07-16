@@ -1,4 +1,4 @@
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineParsable, TimelineItem } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -17,7 +17,7 @@ export type CloseTimeline = typeof CloseTimeline
  * @remarks
  * This expects the string representation `|`.
  */
-@staticImplements<TimelineParsable<TimelineItemClose>>()
+@outerface<TimelineParsable<TimelineItemClose>>()
 export class TimelineItemClose extends TimelineItem<CloseTimeline> {
   constructor() {
     super('|')

@@ -1,4 +1,4 @@
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineParsable, TimelineItem } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -7,7 +7,7 @@ import { TimelineParsable, TimelineItem } from '@johngw/timeline/TimelineItem'
  * @remarks
  * Can either be `F` (false) or `T` (true).
  */
-@staticImplements<TimelineParsable<TimelineItemBoolean>>()
+@outerface<TimelineParsable<TimelineItemBoolean>>()
 export class TimelineItemBoolean extends TimelineItem<boolean> {
   #value: boolean
 

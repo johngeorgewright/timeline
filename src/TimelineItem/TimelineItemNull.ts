@@ -1,11 +1,11 @@
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
  * A timeline item, with the value of `null` that is generated
  * with the shorthand `N`.
  */
-@staticImplements<TimelineParsable<TimelineItemNull>>()
+@outerface<TimelineParsable<TimelineItemNull>>()
 export class TimelineItemNull extends TimelineItem<null> {
   constructor() {
     super('N')

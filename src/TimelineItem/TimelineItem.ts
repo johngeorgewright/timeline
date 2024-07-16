@@ -1,4 +1,5 @@
-import { StaticType, timeout } from '#util'
+import { timeout } from '#util'
+import { Outerface } from '@johngw/outerface'
 
 /**
  * The base class of a timeline item.
@@ -87,14 +88,14 @@ export abstract class TimelineItem<T> {
  * in to a {@link TimelineItem}.
  */
 export interface TimelineParsable<
-  T extends TimelineItem<unknown> = TimelineItem<unknown>
-> extends StaticType<T> {
+  T extends TimelineItem<unknown> = TimelineItem<unknown>,
+> extends Outerface<T> {
   /**
    * Returns a binary tuple where:
    * 1. the 1st item is the parsed {@link TimelineItem}
    * 2. the 2nd item is the **rest** of the unparsed timeline
    */
   parse(
-    timelinePart: string
+    timelinePart: string,
   ): undefined | readonly [timelineItem: T, restOfTimeline: string]
 }

@@ -34,6 +34,7 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/config-conventional", "npm:19.2.2"],\
           ["@commitlint/types", "npm:19.0.3"],\
           ["@jest/types", "npm:29.6.3"],\
+          ["@johngw/outerface", "npm:1.0.0"],\
           ["@semantic-release/commit-analyzer", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:13.0.0"],\
           ["@semantic-release/exec", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:6.0.3"],\
           ["@semantic-release/git", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:10.0.1"],\
@@ -1027,6 +1028,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@johngw/outerface", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "./.yarn/cache/@johngw-outerface-npm-1.0.0-20dfb6e99d-e4038a3e38.zip/node_modules/@johngw/outerface/",\
+        "packageDependencies": [\
+          ["@johngw/outerface", "npm:1.0.0"],\
+          ["tslib", "npm:2.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@johngw/timeline", [\
       ["workspace:.", {\
         "packageLocation": "./",\
@@ -1039,6 +1050,7 @@ const RAW_RUNTIME_STATE =
           ["@commitlint/config-conventional", "npm:19.2.2"],\
           ["@commitlint/types", "npm:19.0.3"],\
           ["@jest/types", "npm:29.6.3"],\
+          ["@johngw/outerface", "npm:1.0.0"],\
           ["@semantic-release/commit-analyzer", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:13.0.0"],\
           ["@semantic-release/exec", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:6.0.3"],\
           ["@semantic-release/git", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:10.0.1"],\

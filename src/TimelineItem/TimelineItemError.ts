@@ -1,4 +1,4 @@
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineParsable, TimelineItem } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -7,7 +7,7 @@ import { TimelineParsable, TimelineItem } from '@johngw/timeline/TimelineItem'
  * @remarks
  * Represented by an `E` character.
  */
-@staticImplements<TimelineParsable<TimelineItemError>>()
+@outerface<TimelineParsable<TimelineItemError>>()
 export class TimelineItemError extends TimelineItem<TimelineError> {
   #error: TimelineError
 

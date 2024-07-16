@@ -1,4 +1,5 @@
 import { asyncIterableToArray } from '#util'
+import { outerface } from '@johngw/outerface'
 import {
   CloseTimeline,
   NeverReachTimelineError,
@@ -8,7 +9,6 @@ import {
   TimelineInstanceOf,
   TimelineItem,
   TimelineParsable,
-  staticImplements,
 } from '@johngw/timeline'
 import { beforeEach, expect, test } from 'vitest'
 
@@ -86,7 +86,7 @@ test('displayTimelinePosition', async () => {
 })
 
 test('custom parser', async () => {
-  @staticImplements<TimelineParsable<FooParser>>()
+  @outerface<TimelineParsable<FooParser>>()
   class FooParser extends TimelineItem<'BAR'> {
     get() {
       return 'BAR' as const

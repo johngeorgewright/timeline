@@ -1,5 +1,5 @@
 import { timeout } from '#util'
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -10,7 +10,7 @@ import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
  * content and the other is to expect that a certain amount of time
  * has passed since the previous item.
  */
-@staticImplements<TimelineParsable<TimelineItemTimer>>()
+@outerface<TimelineParsable<TimelineItemTimer>>()
 export class TimelineItemTimer extends TimelineItem<TimelineTimer> {
   #timer: TimelineTimer
 
@@ -93,8 +93,8 @@ export class TimelineTimer {
       this.finished
         ? 'finished'
         : this.#state.started
-        ? `${this.timeLeft}ms`
-        : ''
+          ? `${this.timeLeft}ms`
+          : ''
     } }`
   }
 

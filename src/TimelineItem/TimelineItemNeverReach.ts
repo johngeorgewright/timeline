@@ -1,4 +1,4 @@
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -7,7 +7,7 @@ import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
  * @remarks
  * Represented by the `X` character.
  */
-@staticImplements<TimelineParsable<TimelineItemNeverReach>>()
+@outerface<TimelineParsable<TimelineItemNeverReach>>()
 export class TimelineItemNeverReach extends TimelineItem<NeverReachTimelineError> {
   #error: NeverReachTimelineError
 

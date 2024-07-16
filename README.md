@@ -115,10 +115,10 @@ You have the ability to add your own timeline items.
 Each timeline item must have a parser. It should take from **the beginning** of a given timeline string and returning a binary tuple where the first value is an instance of the timeline item and the second value is the remaining timeline string.
 
 ```typescript
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
-@staticImplements<TimelineParsable<FooBarTimelineItem>>()
+@outerface<TimelineParsable<FooBarTimelineItem>>()
 export class FooBarTimelineItem extends TimelineItem<string> {
   static parse(timeline: string) {
     const result = this.createItemRegExp('(FOO)').exec(timeline)
@@ -134,10 +134,10 @@ If your parser returns `undefined` it the iterator will keep moving on to the fo
 Now we need to implement the rest of the `TimelineItem`.
 
 ```typescript
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
-@staticImplements<TimelineParsable<FooBarTimelineItem>>()
+@outerface<TimelineParsable<FooBarTimelineItem>>()
 export class FooBarTimelineItem extends TimelineItem<string> {
   static parse(timeline: string) {
     const result = this.createItemRegExp('(FOO)').exec(timeline)
@@ -176,10 +176,10 @@ There are lifecycle methods to implement if you wish to hook in to the timeline 
 This method is called when a timeline item is reached.
 
 ```typescript
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
-@staticImplements<TimelineParsable<FooBarTimelineItem>>()
+@outerface<TimelineParsable<FooBarTimelineItem>>()
 export class FooBarTimelineItem extends TimelineItem<string> {
   static parse(timeline: string) {
     const result = this.createItemRegExp('(FOO)').exec(timeline)
@@ -204,10 +204,10 @@ export class FooBarTimelineItem extends TimelineItem<string> {
 A method that is called just before reaching the next item.
 
 ```typescript
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
-@staticImplements<TimelineParsable<FooBarTimelineItem>>()
+@outerface<TimelineParsable<FooBarTimelineItem>>()
 export class FooBarTimelineItem extends TimelineItem<string> {
   static parse(timeline: string) {
     const result = this.createItemRegExp('(FOO)').exec(timeline)

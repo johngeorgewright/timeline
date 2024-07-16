@@ -1,4 +1,4 @@
-import { staticImplements } from '@johngw/timeline/staticImplements'
+import { outerface } from '@johngw/outerface'
 import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
 
 /**
@@ -7,7 +7,7 @@ import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
  * @remarks
  * Used with `<InstanceName>`.
  */
-@staticImplements<TimelineParsable<TimelineItemInstance>>()
+@outerface<TimelineParsable<TimelineItemInstance>>()
 export class TimelineItemInstance extends TimelineItem<TimelineInstanceOf> {
   #name: string
 
