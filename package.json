@@ -125,7 +125,7 @@
     }
   },
   "dependencies": {
-    "@johngw/outerface": "1.0.0",
+    "@johngw/outerface": "^1.0.0",
     "js-yaml": "^4.1.0",
     "tslib": "^2.6.3"
   },

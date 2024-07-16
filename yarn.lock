@@ -819,7 +819,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@johngw/outerface@npm:1.0.0":
+"@johngw/outerface@npm:^1.0.0":
   version: 1.0.0
   resolution: "@johngw/outerface@npm:1.0.0"
   dependencies:
@@ -839,7 +839,7 @@ __metadata:
     "@commitlint/config-conventional": "npm:19.2.2"
     "@commitlint/types": "npm:19.0.3"
     "@jest/types": "npm:29.6.3"
-    "@johngw/outerface": "npm:1.0.0"
+    "@johngw/outerface": "npm:^1.0.0"
     "@semantic-release/commit-analyzer": "npm:13.0.0"
     "@semantic-release/exec": "npm:6.0.3"
     "@semantic-release/git": "npm:10.0.1"
