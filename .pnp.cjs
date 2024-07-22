@@ -58,7 +58,7 @@ const RAW_RUNTIME_STATE =
           ["semantic-release", "npm:24.0.0"],\
           ["source-map-support", "npm:0.5.21"],\
           ["tslib", "npm:2.6.3"],\
-          ["typescript", "patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"],\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
           ["vitest", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:2.0.3"]\
         ],\
         "linkType": "SOFT"\
@@ -1074,7 +1074,7 @@ const RAW_RUNTIME_STATE =
           ["semantic-release", "npm:24.0.0"],\
           ["source-map-support", "npm:0.5.21"],\
           ["tslib", "npm:2.6.3"],\
-          ["typescript", "patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"],\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
           ["vitest", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:2.0.3"]\
         ],\
         "linkType": "SOFT"\
@@ -9437,10 +9437,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["typescript", [\
-      ["patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07", {\
-        "packageLocation": "./.yarn/cache/typescript-patch-9fde7bec60-7cf7acb78a.zip/node_modules/typescript/",\
+      ["patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07", {\
+        "packageLocation": "./.yarn/cache/typescript-patch-fe43cd9db9-746fdd0865.zip/node_modules/typescript/",\
         "packageDependencies": [\
-          ["typescript", "patch:typescript@npm%3A5.5.3#optional!builtin<compat/typescript>::version=5.5.3&hash=379a07"]\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
         "linkType": "HARD"\
       }]\
