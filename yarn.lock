@@ -847,7 +847,7 @@ __metadata:
     "@semantic-release/release-notes-generator": "npm:14.0.1"
     "@types/babel__core": "npm:^7"
     "@types/js-yaml": "npm:4.0.9"
-    "@types/node": "npm:20.14.10"
+    "@types/node": "npm:20.17.6"
     "@types/semantic-release": "npm:20.0.6"
     "@types/source-map-support": "npm:0.5.10"
     commitizen: "npm:4.3.0"
@@ -1877,12 +1877,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.14.10":
-  version: 20.14.10
-  resolution: "@types/node@npm:20.14.10"
+"@types/node@npm:20.17.6":
+  version: 20.17.6
+  resolution: "@types/node@npm:20.17.6"
   dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10/672892cf94d0d95cf052f11271990686a0fd204cd1e5fe7a4ef240e5315e06711765dc47b9ec98627d3adac18b8c92bb7e2d8db21d18faa20bc3e3203a143e79
+    undici-types: "npm:~6.19.2"
+  checksum: 10/714b8b54951950cee662ce80492831ebc51f914a9adf88583cea777ea4d55b88827b2505ff2f53d2bb7753691aaab1b06c027a7b5c63eb153ad4acee1239690c
   languageName: node
   linkType: hard
 
@@ -8568,10 +8568,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~5.26.4":
-  version: 5.26.5
-  resolution: "undici-types@npm:5.26.5"
-  checksum: 10/0097779d94bc0fd26f0418b3a05472410408877279141ded2bd449167be1aed7ea5b76f756562cb3586a07f251b90799bab22d9019ceba49c037c76445f7cddd
+"undici-types@npm:~6.19.2":
+  version: 6.19.8
+  resolution: "undici-types@npm:6.19.8"
+  checksum: 10/cf0b48ed4fc99baf56584afa91aaffa5010c268b8842f62e02f752df209e3dea138b372a60a963b3b2576ed932f32329ce7ddb9cb5f27a6c83040d8cd74b7a70
   languageName: node
   linkType: hard
 
