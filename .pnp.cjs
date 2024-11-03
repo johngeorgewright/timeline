@@ -42,7 +42,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:14.0.1"],\
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/js-yaml", "npm:4.0.9"],\
-          ["@types/node", "npm:20.14.10"],\
+          ["@types/node", "npm:20.17.6"],\
           ["@types/semantic-release", "npm:20.0.6"],\
           ["@types/source-map-support", "npm:0.5.10"],\
           ["commitizen", "npm:4.3.0"],\
@@ -1058,7 +1058,7 @@ const RAW_RUNTIME_STATE =
           ["@semantic-release/release-notes-generator", "virtual:c1e4bb3f91db61c137d00b7f0716cd79dd2a3b6ccf6a2fbe0b73ca54e8359253fa62422084b45c798ce19fcbcdf2434e7781261ce0ceba51071f96d5bd55799c#npm:14.0.1"],\
           ["@types/babel__core", "npm:7.20.5"],\
           ["@types/js-yaml", "npm:4.0.9"],\
-          ["@types/node", "npm:20.14.10"],\
+          ["@types/node", "npm:20.17.6"],\
           ["@types/semantic-release", "npm:20.0.6"],\
           ["@types/source-map-support", "npm:0.5.10"],\
           ["commitizen", "npm:4.3.0"],\
@@ -2349,11 +2349,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:20.14.10", {\
-        "packageLocation": "./.yarn/cache/@types-node-npm-20.14.10-5efcbc9009-672892cf94.zip/node_modules/@types/node/",\
+      ["npm:20.17.6", {\
+        "packageLocation": "./.yarn/cache/@types-node-npm-20.17.6-c5a007c486-714b8b5495.zip/node_modules/@types/node/",\
         "packageDependencies": [\
-          ["@types/node", "npm:20.14.10"],\
-          ["undici-types", "npm:5.26.5"]\
+          ["@types/node", "npm:20.17.6"],\
+          ["undici-types", "npm:6.19.8"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9480,10 +9480,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["undici-types", [\
-      ["npm:5.26.5", {\
-        "packageLocation": "./.yarn/cache/undici-types-npm-5.26.5-de4f7c7bb9-0097779d94.zip/node_modules/undici-types/",\
+      ["npm:6.19.8", {\
+        "packageLocation": "./.yarn/cache/undici-types-npm-6.19.8-9f12285b7a-cf0b48ed4f.zip/node_modules/undici-types/",\
         "packageDependencies": [\
-          ["undici-types", "npm:5.26.5"]\
+          ["undici-types", "npm:6.19.8"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9671,7 +9671,7 @@ const RAW_RUNTIME_STATE =
           ["vite", "virtual:839d641dea76966d4487a9344225473f76e8c881b29907d79a538cc618c1f122f74e8f14a23266859d9d2a5aafbd8595bc790ffaa493614cb3c7d7366ef77300#npm:5.3.3"],\
           ["@types/less", null],\
           ["@types/lightningcss", null],\
-          ["@types/node", "npm:20.14.10"],\
+          ["@types/node", "npm:20.17.6"],\
           ["@types/sass", null],\
           ["@types/stylus", null],\
           ["@types/sugarss", null],\
@@ -9775,7 +9775,7 @@ const RAW_RUNTIME_STATE =
           ["@types/edge-runtime__vm", null],\
           ["@types/happy-dom", null],\
           ["@types/jsdom", null],\
-          ["@types/node", "npm:20.14.10"],\
+          ["@types/node", "npm:20.17.6"],\
           ["@types/vitest__browser", null],\
           ["@types/vitest__ui", null],\
           ["@vitest/browser", null],\
