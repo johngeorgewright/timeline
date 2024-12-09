@@ -820,11 +820,11 @@ __metadata:
   linkType: hard
 
 "@johngw/outerface@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@johngw/outerface@npm:1.0.0"
+  version: 1.0.2
+  resolution: "@johngw/outerface@npm:1.0.2"
   dependencies:
     tslib: "npm:^2.6.3"
-  checksum: 10/e4038a3e3874ad444a2c732cc46fe29304c603f7dde70889fb0a1a931a3264cf2df8503e97aec1cd6b9293e0eae1e789a9b4e178bfa70e0a2dcc6847932ac336
+  checksum: 10/6aa6a7aa0e27f96731c8c56f52d2f9e90c5d4b133dc8558524e3ad101e1c12af836544018d15ef2b2fb25ae2706945e005ca61088328a4e3bc4375d4ff91e05f
   languageName: node
   linkType: hard
 
