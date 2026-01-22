@@ -1,5 +1,5 @@
 import { outerface } from '@johngw/outerface'
-import { TimelineParsable, TimelineItem } from '@johngw/timeline/TimelineItem'
+import { type TimelineParsable, TimelineItem } from './TimelineItem'
 
 /**
  * Represents an error in the timeline.
@@ -27,7 +27,7 @@ export class TimelineItemError extends TimelineItem<TimelineError> {
     return result
       ? ([
           new TimelineItemError(result[2]),
-          timeline.slice(result[1].length),
+          timeline.slice(result[1]!.length),
         ] as const)
       : undefined
   }

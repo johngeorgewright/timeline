@@ -4,72 +4,25 @@
   "description": "Parse a stream-like timeline of values",
   "type": "module",
   "sideEffects": false,
-  "main": "./dist/common/index.js",
   "exports": {
-    ".": {
-      "import": "./dist/es/index.js",
-      "require": "./dist/common/index.cjs"
-    },
-    "./Timeline": {
-      "import": "./dist/es/Timeline.js",
-      "require": "./dist/common/Timeline.cjs"
-    },
-    "./TimelineItem": {
-      "import": "./dist/es/TimelineItem/TimelineItem.js",
-      "require": "./dist/common/TimelineItem/TimelineItem.cjs"
-    },
-    "./TimelineItemBoolean": {
-      "import": "./dist/es/TimelineItem/TimelineItemBoolean.js",
-      "require": "./dist/common/TimelineItem/TimelineItemBoolean.cjs"
-    },
-    "./TimelineItemClose": {
-      "import": "./dist/es/TimelineItem/TimelineItemClose.js",
-      "require": "./dist/common/TimelineItem/TimelineItemClose.cjs"
-    },
-    "./TimelineItemDash": {
-      "import": "./dist/es/TimelineItem/TimelineItemDash.js",
-      "require": "./dist/common/TimelineItem/TimelineItemDash.cjs"
-    },
-    "./TimelineItemDefault": {
-      "import": "./dist/es/TimelineItem/TimelineItemDefault.js",
-      "require": "./dist/common/TimelineItem/TimelineItemDefault.cjs"
-    },
-    "./TimelineItemError": {
-      "import": "./dist/es/TimelineItem/TimelineItemError.js",
-      "require": "./dist/common/TimelineItem/TimelineItemError.cjs"
-    },
-    "./TimelineItemInstance": {
-      "import": "./dist/es/TimelineItem/TimelineItemInstance.js",
-      "require": "./dist/common/TimelineItem/TimelineItemInstance.cjs"
-    },
-    "./TimelineItemNeverReach": {
-      "import": "./dist/es/TimelineItem/TimelineItemNeverReach.js",
-      "require": "./dist/common/TimelineItem/TimelineItemNeverReach.cjs"
-    },
-    "./TimelineItemNull": {
-      "import": "./dist/es/TimelineItem/TimelineItemNull.js",
-      "require": "./dist/common/TimelineItem/TimelineItemNull.cjs"
-    },
-    "./TimelineItemTimer": {
-      "import": "./dist/es/TimelineItem/TimelineItemTimer.js",
-      "require": "./dist/common/TimelineItem/TimelineItemTimer.cjs"
-    }
-  },
-  "imports": {
-    "#util": {
-      "import": "./dist/es/util.js",
-      "require": "./dist/common/util.cjs"
-    }
+    ".": "./dist/index.js",
+    "./Timeline": "./dist/Timeline.js",
+    "./TimelineItem": "./dist/TimelineItem/TimelineItem.js",
+    "./TimelineItemBoolean": "./dist/TimelineItem/TimelineItemBoolean.js",
+    "./TimelineItemClose": "./dist/TimelineItem/TimelineItemClose.js",
+    "./TimelineItemDash": "./dist/TimelineItem/TimelineItemDash.js",
+    "./TimelineItemDefault": "./dist/TimelineItem/TimelineItemDefault.js",
+    "./TimelineItemError": "./dist/TimelineItem/TimelineItemError.js",
+    "./TimelineItemInstance": "./dist/TimelineItem/TimelineItemInstance.js",
+    "./TimelineItemNeverReach": "./dist/TimelineItem/TimelineItemNeverReach.js",
+    "./TimelineItemNull": "./dist/TimelineItem/TimelineItemNull.js",
+    "./TimelineItemTimer": "./dist/TimelineItem/TimelineItemTimer.js"
   },
   "scripts": {
-    "build": "yarn clean && tsc && yarn build:common",
-    "build:common": "tsc --project tsconfig.common.json > /dev/null; yarn build:covertcommonext",
-    "build:covertcommonext": "renamer --force --find '/\\.(j|t)s/' --replace '.c$1s' dist/common/**/*",
+    "build": "bun run clean && tsc",
     "clean": "rimraf dist",
     "prepare": "husky install",
-    "start": "yarn tsc --watch --preserveWatchOutput",
-    "test": "vitest test",
-    "test:coverage": "jest --coverage"
+    "start": "tsc --watch --preserveWatchOutput"
   },
   "repository": {
     "type": "git",
@@ -83,40 +36,20 @@
   },
   "homepage": "https://github.com/johngeorgewright/timeline#readme",
   "devDependencies": {
-    "@babel/cli": "7.24.8",
-    "@babel/core": "7.24.9",
-    "@babel/plugin-transform-modules-commonjs": "7.24.8",
-    "@commitlint/cli": "19.3.0",
-    "@commitlint/config-conventional": "19.2.2",
-    "@commitlint/types": "19.0.3",
-    "@jest/types": "29.6.3",
-    "@semantic-release/commit-analyzer": "13.0.0",
-    "@semantic-release/exec": "6.0.3",
-    "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "10.3.5",
-    "@semantic-release/release-notes-generator": "14.0.1",
-    "@types/babel__core": "^7",
+    "@commitlint/cli": "20.3.1",
+    "@commitlint/config-conventional": "20.3.1",
+    "@commitlint/types": "20.3.1",
+    "@types/bun": "latest",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "20.17.6",
-    "@types/semantic-release": "20.0.6",
-    "@types/source-map-support": "0.5.10",
-    "commitizen": "4.3.0",
-    "concurrently": "8.2.2",
-    "cz-conventional-changelog": "3.3.0",
     "husky": "9.1.7",
-    "lint-staged": "15.2.7",
-    "nodemon": "3.1.4",
-    "prettier": "3.3.3",
-    "renamer": "5.0.1",
-    "rimraf": "6.0.1",
-    "semantic-release": "24.2.0",
-    "source-map-support": "0.5.21",
-    "typescript": "5.5.3",
-    "vitest": "2.1.5"
+    "lint-staged": "16.2.7",
+    "prettier": "3.8.1",
+    "rimraf": "6.1.2",
+    "typescript": "5.9.3"
   },
   "lint-staged": {
     "*.{md,json,js,jsx,ts,tsx,yml,yaml}": [
-      "yarn prettier --ignore-path .gitignore --write"
+      "bunx prettier --ignore-path .gitignore --write"
     ]
   },
   "config": {
@@ -125,9 +58,8 @@
     }
   },
   "dependencies": {
-    "@johngw/outerface": "^1.0.0",
+    "@johngw/outerface": "^2.0.2",
     "js-yaml": "^4.1.0",
     "tslib": "^2.6.3"
-  },
-  "packageManager": "yarn@4.5.1"
+  }
 }

@@ -1,6 +1,6 @@
-import { timeout } from '#util'
+import { timeout } from '../util'
 import { outerface } from '@johngw/outerface'
-import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
+import { TimelineItem, type TimelineParsable } from './TimelineItem'
 
 /**
  * A timeline item that represents a timer.
@@ -39,7 +39,7 @@ export class TimelineItemTimer extends TimelineItem<TimelineTimer> {
     return result
       ? ([
           new TimelineItemTimer(Number(result[2])),
-          timeline.slice(result[1].length),
+          timeline.slice(result[1]!.length),
         ] as const)
       : undefined
   }
