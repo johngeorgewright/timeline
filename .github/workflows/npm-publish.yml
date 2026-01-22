@@ -30,12 +30,17 @@ jobs:
     needs: [release-please]
     if: needs.release-please.outputs.release_created == 'true'
     runs-on: ubuntu-latest
-    container: oven/bun:1
     environment: npm
     permissions:
       id-token: write
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - run: bun install --frozen-lockfile
       - run: bun run build
-      - run: bun publish --access public --ignore-scripts
+      - run: npm publish
