@@ -8,44 +8,38 @@ jobs:
   publish-test:
     uses: ./.github/workflows/pull-request.yml
 
-  publish-npm:
-    name: NPM
+  release-please:
+    name: Create Release PR
     needs: [publish-test]
     runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v4
+      - name: Create Release Pull Request or Release
+        uses: googleapis/release-please-action@v4
+        id: release
         with:
           token: ${{ secrets.PUSH_TOKEN }}
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
+  publish-npm:
+    name: Publish to NPM
+    needs: [release-please]
+    if: needs.release-please.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    container: oven/bun:1
+    environment: npm
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v6
 
-      - name: Setup Registries
-        run: |
-          yarn config set --home 'npmRegistries["https://registry.npmjs.org"].npmAuthToken' '${{ secrets.NPM_TOKEN }}'
-          yarn config set --home npmPublishRegistry https://registry.npmjs.org
-
-      - name: Restore cache
-        uses: actions/cache@v4
-        id: cache
-        with:
-          path: |
-            .yarn/unplugged
-            .yarn/install-state.gz
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Yarn
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn install --immutable
+      - name: Install
+        run: bun install --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: bun run build
 
-      - name: Release
-        run: yarn semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to NPM
+        run: bun publish --access public
