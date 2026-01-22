@@ -21,7 +21,7 @@
   "scripts": {
     "build": "bun run clean && tsc",
     "clean": "rimraf dist",
-    "prepare": "husky install",
+    "prepare": "husky",
     "start": "tsc --watch --preserveWatchOutput"
   },
   "repository": {
