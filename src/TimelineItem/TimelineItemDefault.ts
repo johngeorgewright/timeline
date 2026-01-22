@@ -1,6 +1,6 @@
-import { takeCharsUntil } from '#util'
+import { takeCharsUntil } from '../util'
 import yaml from 'js-yaml'
-import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
+import { TimelineItem, type TimelineParsable } from './TimelineItem'
 import { outerface } from '@johngw/outerface'
 
 /**

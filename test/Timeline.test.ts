@@ -1,4 +1,4 @@
-import { asyncIterableToArray } from '#util'
+import { asyncIterableToArray } from '../src/util'
 import { outerface } from '@johngw/outerface'
 import {
   CloseTimeline,
@@ -8,7 +8,7 @@ import {
   TimelineTimer,
   TimelineInstanceOf,
   TimelineItem,
-  TimelineParsable,
+  type TimelineParsable,
 } from '@johngw/timeline'
 import { beforeEach, expect, test } from 'vitest'
 

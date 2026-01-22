@@ -1,5 +1,5 @@
 import { outerface } from '@johngw/outerface'
-import { TimelineParsable, TimelineItem } from '@johngw/timeline/TimelineItem'
+import { type TimelineParsable, TimelineItem } from './TimelineItem'
 
 /**
  * A symbol to represent closing a timeline.

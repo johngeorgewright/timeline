@@ -1,5 +1,5 @@
 import { outerface } from '@johngw/outerface'
-import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
+import { TimelineItem, type TimelineParsable } from './TimelineItem'
 
 /**
  * A timeline item that would represent an instance of something.
@@ -26,8 +26,8 @@ export class TimelineItemInstance extends TimelineItem<TimelineInstanceOf> {
     const result = this.#regexp.exec(timeline)
     return result
       ? ([
-          new TimelineItemInstance(result[2]),
-          timeline.slice(result[1].length),
+          new TimelineItemInstance(result[2]!),
+          timeline.slice(result[1]!.length),
         ] as const)
       : undefined
   }

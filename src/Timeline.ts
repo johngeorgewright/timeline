@@ -1,14 +1,17 @@
-import { asyncIterableReduce, search } from '#util'
-import { TimelineItemBoolean } from '@johngw/timeline/TimelineItemBoolean'
-import { TimelineItemClose } from '@johngw/timeline/TimelineItemClose'
-import { TimelineItemError } from '@johngw/timeline/TimelineItemError'
-import { TimelineItemNeverReach } from '@johngw/timeline/TimelineItemNeverReach'
-import { TimelineItemNull } from '@johngw/timeline/TimelineItemNull'
-import { TimelineItemTimer } from '@johngw/timeline/TimelineItemTimer'
-import { TimelineItemDefault } from '@johngw/timeline/TimelineItemDefault'
-import { TimelineItemDash } from '@johngw/timeline/TimelineItemDash'
-import { TimelineItem, TimelineParsable } from '@johngw/timeline/TimelineItem'
-import { TimelineItemInstance } from '@johngw/timeline/TimelineItemInstance'
+import { asyncIterableReduce, search } from './util'
+import { TimelineItemBoolean } from './TimelineItem/TimelineItemBoolean'
+import { TimelineItemClose } from './TimelineItem/TimelineItemClose'
+import { TimelineItemError } from './TimelineItem/TimelineItemError'
+import { TimelineItemNeverReach } from './TimelineItem/TimelineItemNeverReach'
+import { TimelineItemNull } from './TimelineItem/TimelineItemNull'
+import { TimelineItemTimer } from './TimelineItem/TimelineItemTimer'
+import { TimelineItemDefault } from './TimelineItem/TimelineItemDefault'
+import { TimelineItemDash } from './TimelineItem/TimelineItemDash'
+import {
+  TimelineItem,
+  type TimelineParsable,
+} from './TimelineItem/TimelineItem'
+import { TimelineItemInstance } from './TimelineItem/TimelineItemInstance'
 
 /**
  * The configured Timeline parsers.
@@ -123,7 +126,7 @@ export class Timeline<
 ^`
     let length = 0
     for (let i = 0; i < this.#position && i < this.#parsed.length; i++)
-      length += this.#parsed[i].rawValue.length
+      length += this.#parsed[i]!.rawValue.length
 
     return `${unparsed}
 ${' '.repeat(length)}^`
@@ -152,6 +155,8 @@ ${' '.repeat(length)}^`
       return { done: true, value: undefined }
 
     const value = this.#parsed[++this.#position]
+    if (!value) return { done: true, value: undefined }
+
     await value.onReach()
 
     return { done: false, value }

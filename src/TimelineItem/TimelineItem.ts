@@ -1,5 +1,5 @@
-import { timeout } from '#util'
-import { Outerface } from '@johngw/outerface'
+import { timeout } from '../util'
+import type { Outerface } from '@johngw/outerface'
 
 /**
  * The base class of a timeline item.
