@@ -10,14 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: oven/bun:1
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v6
-
-      - name: Install
-        run: bun install --frozen-lockfile
-
-      - name: Build
-        run: bun run build
-
-      - name: Test
-        run: bun test
+      - uses: actions/checkout@v6
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+      - run: bun test

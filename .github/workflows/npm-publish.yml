@@ -20,8 +20,7 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
-      - name: Create Release Pull Request or Release
-        uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v4
         id: release
         with:
           token: ${{ secrets.PUSH_TOKEN }}
@@ -36,14 +35,7 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v6
-
-      - name: Install
-        run: bun install --frozen-lockfile
-
-      - name: Build
-        run: bun run build
-
-      - name: Publish to NPM
-        run: bun publish --access public --ignore-scripts
+      - uses: actions/checkout@v6
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+      - run: bun publish --access public --ignore-scripts
